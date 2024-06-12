@@ -1,0 +1,2608 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="800.0" prefWidth="1250.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eaton.cs.sb2fw.SBLCP_local_terminal.GUI.MainGUIcontroller">
+  <children>
+    <MenuBar VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="File" visible="false">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Open settings file..." />
+            <MenuItem mnemonicParsing="false" text="Save setting file as…" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Preferences…" />
+            <MenuItem fx:id="topMenuFileQuit" mnemonicParsing="false" text="Quit" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Edit" visible="false">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Undo" />
+            <MenuItem mnemonicParsing="false" text="Redo" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Cut" />
+            <MenuItem mnemonicParsing="false" text="Copy" />
+            <MenuItem mnemonicParsing="false" text="Paste" />
+            <MenuItem mnemonicParsing="false" text="Delete" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Select All" />
+            <MenuItem mnemonicParsing="false" text="Unselect All" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help" visible="false">
+          <items>
+            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+   
+    <SplitPane dividerPositions="0.2505567928730512" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+      <items>
+        <AnchorPane fx:id="windowLeft">
+          <children>
+                  <VBox layoutX="3.0" layoutY="5.0" prefHeight="338.0" prefWidth="310.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                  <Label alignment="CENTER" minWidth="60.0" prefWidth="-1.0" style="&#10;" text="Connection" textAlignment="CENTER" wrapText="false">
+                    <font>
+                      <Font size="15.0" fx:id="x1" />
+                    </font>
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
+                  </Label>
+                        <HBox prefHeight="18.0" prefWidth="310.0">
+                           <children>
+                              <TextField fx:id="serialCOMInputField" prefHeight="25.0" prefWidth="76.0" promptText="Serial COM">
+                                 <HBox.margin>
+                                    <Insets right="5.0" />
+                                 </HBox.margin>
+                              </TextField>
+                              <MenuButton fx:id="serialPortMenuButton" mnemonicParsing="false" text="Serial Port" />
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="5.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <TextField fx:id="udpKeyInputField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="156.0" promptText="UDP Key">
+                           <VBox.margin>
+                              <Insets bottom="5.0" />
+                           </VBox.margin>
+                           <tooltip>
+                              <Tooltip text="Default value: ba32b432c6e911edafa10242ac120002" />
+                           </tooltip>
+                        </TextField>
+                        <TextField fx:id="wifiSSIDInputField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="156.0" promptText="WiFi SSID">
+                           <tooltip>
+                              <Tooltip text="Default value: ORBI46" />
+                           </tooltip>
+                           <VBox.margin>
+                              <Insets bottom="5.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <TextField fx:id="wifiPasswordInputField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="156.0" promptText="WiFi Password">
+                           <tooltip>
+                              <Tooltip text="Default value: eatonEaton987" />
+                           </tooltip>
+                        </TextField>
+                        <Label text="Hover cursor over input field to view default value.">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <VBox prefHeight="131.0" prefWidth="294.0">
+                           <children>
+                              <VBox>
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" onAction="#handleStartListeningButton" text="Start Listening" />
+                                          <ProgressIndicator fx:id="startListeningProcessIndicator" prefHeight="20.0" prefWidth="20.0" visible="false">
+                                             <HBox.margin>
+                                                <Insets left="5.0" />
+                                             </HBox.margin>
+                                          </ProgressIndicator>
+                                          <Label fx:id="startListeningConnectionStatusLabel" text="Connection Status" visible="false">
+                                             <HBox.margin>
+                                                <Insets left="5.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <Label text="(Taking too long? Ensure SSID and psw is correct)" textFill="#757575">
+                                       <font>
+                                          <Font size="10.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="(Still taking too long? Click &quot;Stop Listening&quot; and &quot;Start Listening&quot;)" textFill="#757575">
+                                       <font>
+                                          <Font size="10.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </VBox>
+                              <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#handleStopListeningButton" text="Stop Listening" />
+                                    <Label text="This also exports log to txt (see &quot;logs&quot; folder)">
+                                       <font>
+                                          <Font size="10.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets left="5.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" top="5.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <Button mnemonicParsing="false" onAction="#handleCustomMessageBlockClearOutputButton" text="Clear Output">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" top="5.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#handleRebootEsp32Button" text="Reboot esp32 dev board (NOT breaker)">
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </Button>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="20.0" />
+                           </VBox.margin>
+                        </VBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                     </padding>
+                  </VBox>
+                  <VBox layoutY="347.0" prefHeight="424.0" prefWidth="310.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                     <padding>
+                        <Insets bottom="8.0" left="8.0" right="8.0" top="20.0" />
+                     </padding>
+                     <children>
+                        <VBox alignment="TOP_CENTER" prefHeight="309.0" prefWidth="294.0" style="-fx-border-color: black;">
+                           <children>
+                              <Label text="Breakers On the Network" />
+                              <AnchorPane fx:id="ipAddressAnchorPaneForNum1" disable="true" prefHeight="19.0" prefWidth="282.0">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" layoutX="39.0" prefHeight="43.0" prefWidth="127.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="24.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <Label prefHeight="18.0" prefWidth="13.0" text="#1">
+                                             <HBox.margin>
+                                                <Insets right="2.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <Label text="(">
+                                             <font>
+                                                <Font size="10.0" />
+                                             </font></Label>
+                                          <Label fx:id="ipAddressLabelForNum1" text="224.0.0.251">
+                                             <font>
+                                                <Font size="10.0" />
+                                             </font></Label>
+                                          <Label prefHeight="15.0" prefWidth="0.0" text=")">
+                                             <font>
+                                                <Font size="10.0" />
+                                             </font></Label>
+                                       </children>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox alignment="CENTER_RIGHT" prefHeight="43.0" prefWidth="157.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <Circle fx:id="ipAddressCircleForNum1" fill="WHITE" radius="8.0" stroke="BLACK" strokeType="INSIDE">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                          <Button mnemonicParsing="false" onAction="#identifyBreakersOnTheNetworkConnectButtonNum1" text="Identify">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Button mnemonicParsing="false" onAction="#handleBreakersOnTheNetworkConnectButtonNum1" text="Connect" />
+                                       </children>
+                                       <padding>
+                                          <Insets right="5.0" />
+                                       </padding>
+                                    </HBox>
+                                    <CheckBox fx:id="checkbox1" layoutX="5.0" layoutY="4.0" mnemonicParsing="false" onAction="#handleCheckbox" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="3.0" />
+                                 </VBox.margin>
+                              </AnchorPane>
+                              <AnchorPane fx:id="ipAddressAnchorPaneForNum2" disable="true" prefHeight="19.0" prefWidth="282.0">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" layoutX="38.0" prefHeight="43.0" prefWidth="127.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="24.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <Label text="#2">
+                                             <HBox.margin>
+                                                <Insets right="2.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <Label text="(" />
+                                          <Label fx:id="ipAddressLabelForNum2" text="-">
+                                             <font>
+                                                <Font size="10.0" />
+                                             </font></Label>
+                                          <Label text=")" />
+                                       </children>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox alignment="CENTER_RIGHT" prefHeight="43.0" prefWidth="157.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <Circle fx:id="ipAddressCircleForNum2" fill="WHITE" radius="8.0" stroke="BLACK" strokeType="INSIDE">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                          <Button mnemonicParsing="false" onAction="#identifyBreakersOnTheNetworkConnectButtonNum2" text="Identify">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Button mnemonicParsing="false" onAction="#handleBreakersOnTheNetworkConnectButtonNum2" text="Connect" />
+                                       </children>
+                                       <padding>
+                                          <Insets right="5.0" />
+                                       </padding>
+                                    </HBox>
+                                    <CheckBox fx:id="checkbox2" layoutX="5.0" layoutY="4.0" mnemonicParsing="false" onAction="#handleCheckbox" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="3.0" />
+                                 </VBox.margin>
+                              </AnchorPane>
+                              <AnchorPane fx:id="ipAddressAnchorPaneForNum3" disable="true" prefHeight="19.0" prefWidth="282.0">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" layoutX="38.0" prefHeight="43.0" prefWidth="127.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="24.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <Label text="#3">
+                                             <HBox.margin>
+                                                <Insets right="2.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <Label text="(" />
+                                          <Label fx:id="ipAddressLabelForNum3" text="-">
+                                             <font>
+                                                <Font size="10.0" />
+                                             </font></Label>
+                                          <Label text=")" />
+                                       </children>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox alignment="CENTER_RIGHT" prefHeight="43.0" prefWidth="157.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <Circle fx:id="ipAddressCircleForNum3" fill="WHITE" radius="8.0" stroke="BLACK" strokeType="INSIDE">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                          <Button mnemonicParsing="false" onAction="#identifyBreakersOnTheNetworkConnectButtonNum3" text="Identify">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Button mnemonicParsing="false" onAction="#handleBreakersOnTheNetworkConnectButtonNum3" text="Connect" />
+                                       </children>
+                                       <padding>
+                                          <Insets right="5.0" />
+                                       </padding>
+                                    </HBox>
+                                    <CheckBox fx:id="checkbox3" layoutX="5.0" layoutY="4.0" mnemonicParsing="false" onAction="#handleCheckbox" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="3.0" />
+                                 </VBox.margin>
+                              </AnchorPane>
+                              <AnchorPane fx:id="ipAddressAnchorPaneForNum4" disable="true" prefHeight="19.0" prefWidth="282.0">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" layoutX="38.0" prefHeight="43.0" prefWidth="127.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="24.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <Label text="#4">
+                                             <HBox.margin>
+                                                <Insets right="2.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <Label text="(" />
+                                          <Label fx:id="ipAddressLabelForNum4" text="-">
+                                             <font>
+                                                <Font size="10.0" />
+                                             </font></Label>
+                                          <Label text=")" />
+                                       </children>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox alignment="CENTER_RIGHT" prefHeight="43.0" prefWidth="157.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <Circle fx:id="ipAddressCircleForNum4" fill="WHITE" radius="8.0" stroke="BLACK" strokeType="INSIDE">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                          <Button mnemonicParsing="false" onAction="#identifyBreakersOnTheNetworkConnectButtonNum4" text="Identify">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Button mnemonicParsing="false" onAction="#handleBreakersOnTheNetworkConnectButtonNum4" text="Connect" />
+                                       </children>
+                                       <padding>
+                                          <Insets right="5.0" />
+                                       </padding>
+                                    </HBox>
+                                    <CheckBox fx:id="checkbox4" layoutX="5.0" layoutY="4.0" mnemonicParsing="false" onAction="#handleCheckbox" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="3.0" />
+                                 </VBox.margin>
+                              </AnchorPane>
+                              <AnchorPane fx:id="ipAddressAnchorPaneForNum5" disable="true" prefHeight="19.0" prefWidth="282.0">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" layoutX="39.0" prefHeight="43.0" prefWidth="127.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="24.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <Label text="#5">
+                                             <HBox.margin>
+                                                <Insets right="2.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <Label text="(" />
+                                          <Label fx:id="ipAddressLabelForNum5" text="-">
+                                             <font>
+                                                <Font size="10.0" />
+                                             </font></Label>
+                                          <Label text=")" />
+                                       </children>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox alignment="CENTER_RIGHT" prefHeight="43.0" prefWidth="157.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <Circle fx:id="ipAddressCircleForNum5" fill="WHITE" radius="8.0" stroke="BLACK" strokeType="INSIDE">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                          <Button mnemonicParsing="false" onAction="#identifyBreakersOnTheNetworkConnectButtonNum5" text="Identify">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Button mnemonicParsing="false" onAction="#handleBreakersOnTheNetworkConnectButtonNum5" text="Connect" />
+                                       </children>
+                                       <padding>
+                                          <Insets right="5.0" />
+                                       </padding>
+                                    </HBox>
+                                    <CheckBox fx:id="checkbox5" layoutX="5.0" layoutY="4.0" mnemonicParsing="false" onAction="#handleCheckbox" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="3.0" />
+                                 </VBox.margin>
+                              </AnchorPane>
+                              <AnchorPane fx:id="ipAddressAnchorPaneForNum6" disable="true" prefHeight="19.0" prefWidth="282.0">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" layoutX="39.0" prefHeight="43.0" prefWidth="127.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="24.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <Label text="#6">
+                                             <HBox.margin>
+                                                <Insets right="2.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <Label text="(" />
+                                          <Label fx:id="ipAddressLabelForNum6" text="-">
+                                             <font>
+                                                <Font size="10.0" />
+                                             </font></Label>
+                                          <Label text=")" />
+                                       </children>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox alignment="CENTER_RIGHT" prefHeight="43.0" prefWidth="157.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <Circle fx:id="ipAddressCircleForNum6" fill="WHITE" radius="8.0" stroke="BLACK" strokeType="INSIDE">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                          <Button mnemonicParsing="false" onAction="#identifyBreakersOnTheNetworkConnectButtonNum6" text="Identify">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Button mnemonicParsing="false" onAction="#handleBreakersOnTheNetworkConnectButtonNum6" text="Connect" />
+                                       </children>
+                                       <padding>
+                                          <Insets right="5.0" />
+                                       </padding>
+                                    </HBox>
+                                    <CheckBox fx:id="checkbox6" layoutX="5.0" layoutY="4.0" mnemonicParsing="false" onAction="#handleCheckbox" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="3.0" />
+                                 </VBox.margin>
+                              </AnchorPane>
+                              <AnchorPane fx:id="ipAddressAnchorPaneForNum7" disable="true" prefHeight="19.0" prefWidth="282.0">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" layoutX="39.0" prefHeight="43.0" prefWidth="127.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="24.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <Label text="#7">
+                                             <HBox.margin>
+                                                <Insets right="2.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <Label text="(" />
+                                          <Label fx:id="ipAddressLabelForNum7" text="-">
+                                             <font>
+                                                <Font size="10.0" />
+                                             </font></Label>
+                                          <Label text=")" />
+                                       </children>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox alignment="CENTER_RIGHT" prefHeight="43.0" prefWidth="157.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <Circle fx:id="ipAddressCircleForNum7" fill="WHITE" radius="8.0" stroke="BLACK" strokeType="INSIDE">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                          <Button mnemonicParsing="false" onAction="#identifyBreakersOnTheNetworkConnectButtonNum7" text="Identify">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Button mnemonicParsing="false" onAction="#handleBreakersOnTheNetworkConnectButtonNum7" text="Connect" />
+                                       </children>
+                                       <padding>
+                                          <Insets right="5.0" />
+                                       </padding>
+                                    </HBox>
+                                    <CheckBox fx:id="checkbox7" layoutX="5.0" layoutY="4.0" mnemonicParsing="false" onAction="#handleCheckbox" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="3.0" />
+                                 </VBox.margin>
+                              </AnchorPane>
+                              <AnchorPane fx:id="ipAddressAnchorPaneForNum8" disable="true" prefHeight="19.0" prefWidth="282.0">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" layoutX="39.0" prefHeight="43.0" prefWidth="127.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="24.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <Label text="#8">
+                                             <HBox.margin>
+                                                <Insets right="2.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <Label text="(" />
+                                          <Label fx:id="ipAddressLabelForNum8" text="-">
+                                             <font>
+                                                <Font size="10.0" />
+                                             </font></Label>
+                                          <Label text=")" />
+                                       </children>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox alignment="CENTER_RIGHT" prefHeight="43.0" prefWidth="157.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <Circle fx:id="ipAddressCircleForNum8" fill="WHITE" radius="8.0" stroke="BLACK" strokeType="INSIDE">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                          <Button mnemonicParsing="false" onAction="#identifyBreakersOnTheNetworkConnectButtonNum8" text="Identify">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Button mnemonicParsing="false" onAction="#handleBreakersOnTheNetworkConnectButtonNum8" text="Connect" />
+                                       </children>
+                                       <padding>
+                                          <Insets right="5.0" />
+                                       </padding>
+                                    </HBox>
+                                    <CheckBox fx:id="checkbox8" layoutX="5.0" layoutY="4.0" mnemonicParsing="false" onAction="#handleCheckbox" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="3.0" />
+                                 </VBox.margin>
+                              </AnchorPane>
+                              <AnchorPane fx:id="ipAddressAnchorPaneForNum9" disable="true" prefHeight="19.0" prefWidth="282.0">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" layoutX="39.0" prefHeight="43.0" prefWidth="127.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="24.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <Label text="#9">
+                                             <HBox.margin>
+                                                <Insets right="2.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <Label text="(" />
+                                          <Label fx:id="ipAddressLabelForNum9" text="-">
+                                             <font>
+                                                <Font size="10.0" />
+                                             </font></Label>
+                                          <Label text=")" />
+                                       </children>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox alignment="CENTER_RIGHT" prefHeight="43.0" prefWidth="157.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <Circle fx:id="ipAddressCircleForNum9" fill="WHITE" radius="8.0" stroke="BLACK" strokeType="INSIDE">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                          <Button mnemonicParsing="false" onAction="#identifyBreakersOnTheNetworkConnectButtonNum9" text="Identify">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Button mnemonicParsing="false" onAction="#handleBreakersOnTheNetworkConnectButtonNum9" text="Connect" />
+                                       </children>
+                                       <padding>
+                                          <Insets right="5.0" />
+                                       </padding>
+                                    </HBox>
+                                    <CheckBox fx:id="checkbox9" layoutX="5.0" layoutY="4.0" mnemonicParsing="false" onAction="#handleCheckbox" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="3.0" />
+                                 </VBox.margin>
+                              </AnchorPane>
+                              <AnchorPane fx:id="ipAddressAnchorPaneForNum10" disable="true" prefHeight="19.0" prefWidth="282.0">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" layoutX="38.0" prefHeight="43.0" prefWidth="127.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="24.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <Label text="#10">
+                                             <HBox.margin>
+                                                <Insets right="2.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <Label text="(" />
+                                          <Label fx:id="ipAddressLabelForNum10" text="-">
+                                             <font>
+                                                <Font size="10.0" />
+                                             </font></Label>
+                                          <Label text=")" />
+                                       </children>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox alignment="CENTER_RIGHT" prefHeight="43.0" prefWidth="157.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <Circle fx:id="ipAddressCircleForNum10" fill="WHITE" radius="8.0" stroke="BLACK" strokeType="INSIDE">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                          <Button mnemonicParsing="false" onAction="#identifyBreakersOnTheNetworkConnectButtonNum10" text="Identify">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Button mnemonicParsing="false" onAction="#handleBreakersOnTheNetworkConnectButtonNum10" text="Connect" />
+                                       </children>
+                                       <padding>
+                                          <Insets right="5.0" />
+                                       </padding>
+                                    </HBox>
+                                    <CheckBox fx:id="checkbox10" layoutX="5.0" layoutY="4.0" mnemonicParsing="false" onAction="#handleCheckbox" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="3.0" />
+                                 </VBox.margin>
+                              </AnchorPane>
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </VBox>
+                        <Label text="You can only connect to one breaker at a time." />
+                        <HBox alignment="CENTER_LEFT" prefHeight="10.0" prefWidth="294.0">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <children>
+                              <Circle fill="#30eb49" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+                              <Label text="means you are talking to that breaker.">
+                                 <HBox.margin>
+                                    <Insets left="3.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <Button mnemonicParsing="false" onAction="#handleMultipleBreakerConnect" text="Connect">
+                           <VBox.margin>
+                              <Insets top="15.0" />
+                           </VBox.margin>
+                        </Button>
+                     </children>
+                  </VBox>
+                  <VBox fx:id="logContainer" layoutY="457.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="194.0" prefWidth="247.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                     <children>
+                        <ScrollPane fx:id="logScrollPane" fitToHeight="true" prefHeight="260.0" prefWidth="247.0">
+                           <content>
+                              <VBox fx:id="logContent" fillWidth="false" prefHeight="162.0" prefWidth="618.0" />
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </VBox>
+          </children>
+        </AnchorPane>
+            <AnchorPane id="Content" fx:id="windowRight" minHeight="-1.0" minWidth="-1.0" prefHeight="650.0" prefWidth="745.0">
+                     <children>
+                        <ButtonBar layoutX="5.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="923.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="4.0">
+                          <buttons>
+                        <Button fx:id="setLEDButton" maxWidth="50.0" mnemonicParsing="false" onAction="#handleButtonBarButtonsAction" text="LED" />
+                        <Button fx:id="manufacturingModeButton" mnemonicParsing="false" onAction="#handleButtonBarButtonsAction" text="Manufact. Mode" />
+                        <Button fx:id="handlePositionButton" mnemonicParsing="false" onAction="#handleButtonBarButtonsAction" text="HandlePosition" />
+                        <Button fx:id="nextUDPSequenceNumberButton" mnemonicParsing="false" onAction="#handleButtonBarButtonsAction" text="Next UDP Seq #" />
+                        <Button fx:id="EOLCalibParamButton" mnemonicParsing="false" onAction="#handleButtonBarButtonsAction" text="EOL Calib Param" />
+                              <Button fx:id="deviceStatusButton" mnemonicParsing="false" onAction="#handleButtonBarButtonsAction" text="Device Status" />
+                              <Button fx:id="factoryResetButton" mnemonicParsing="false" onAction="#handleButtonBarButtonsAction" prefHeight="25.0" text="Factory Reset" />
+                              <Button fx:id="sendMessageButton" mnemonicParsing="false" onAction="#handleButtonBarButtonsAction" text="Send Message" />
+                          </buttons>
+                           <padding>
+                              <Insets left="5.0" right="5.0" />
+                           </padding>
+                        </ButtonBar>
+                  <ButtonBar layoutX="4.0" layoutY="35.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="200.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="4.0">
+                    <buttons>
+                        <Button fx:id="tripCodeButton" mnemonicParsing="false" onAction="#handleButtonBarButtonsAction" text="Trip Codes" />
+                        <Button fx:id="enduranceTestButton" mnemonicParsing="false" onAction="#handleButtonBarButtonsAction" text="Endurance Test" />
+                        <Button fx:id="measurementTestButton" mnemonicParsing="false" onAction="#handleButtonBarButtonsAction" text="Measurement Test" />
+                        <Button fx:id="energyAccumTestButton" mnemonicParsing="false" onAction="#handleButtonBarButtonsAction" text="Energy Accum Test" />
+                        <Button fx:id="sbOmicYokoButton" mnemonicParsing="false" onAction="#handleButtonBarButtonsAction" text="SmartOmiYoko" />
+                    </buttons>
+                     <padding>
+                        <Insets left="5.0" right="5.0" />
+                     </padding>
+                  </ButtonBar>
+                        <BorderPane fx:id="customMessageBlock" layoutX="10.0" layoutY="86.0" prefHeight="424.0" prefWidth="745.0" visible="false">
+                           <top>
+                              <Label text="Create and send custom message!" BorderPane.alignment="CENTER">
+                                 <BorderPane.margin>
+                                    <Insets top="20.0" />
+                                 </BorderPane.margin>
+                              </Label>
+                           </top>
+                           <center>
+                              <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <TextField prefHeight="25.0" prefWidth="327.0" promptText="Message header">
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <TextField promptText="Message sequence number">
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <TextField promptText="Message Code">
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <TextField promptText="Message Data">
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <TextField promptText="Cryptographic Hash">
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <TextArea prefHeight="200.0" prefWidth="200.0" />
+                                    <ButtonBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="200.0">
+                                      <buttons>
+                                        <Button mnemonicParsing="false" text="Reset" />
+                                          <Button mnemonicParsing="false" text="Send" />
+                                          <Button mnemonicParsing="false" text="Save as" />
+                                      </buttons>
+                                       <VBox.margin>
+                                          <Insets top="5.0" />
+                                       </VBox.margin>
+                                    </ButtonBar>
+                                    <ButtonBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="200.0">
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" top="5.0" />
+                                       </VBox.margin>
+                                    </ButtonBar>
+                                 </children>
+                              </VBox>
+                           </center>
+                           <left>
+                              <VBox prefHeight="379.0" prefWidth="40.0" BorderPane.alignment="CENTER" />
+                           </left>
+                           <right>
+                              <VBox prefHeight="379.0" prefWidth="51.0" BorderPane.alignment="CENTER" />
+                           </right>
+                        </BorderPane>
+                  <BorderPane fx:id="factoryResetBlock" layoutX="9.0" layoutY="94.0" prefHeight="468.0" prefWidth="913.0" style="-fx-border-color: red; -fx-border-width: 5;" visible="false">
+                     <top>
+                        <VBox alignment="CENTER" prefHeight="50.0" prefWidth="932.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Label text="WARNING!" textFill="RED">
+                                 <font>
+                                    <Font name="Sitka Small" size="96.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </top>
+                     <center>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <ImageView fitHeight="89.0" fitWidth="135.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@warning.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Button mnemonicParsing="false" text="Factory Reset" textFill="RED">
+                                       <HBox.margin>
+                                          <Insets left="20.0" right="20.0" />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Button>
+                                    <ImageView fitHeight="89.0" fitWidth="135.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@warning.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </HBox>
+                              <Label text="You WILL loose connection once factory resetted, and you will need to re-provision the breaker to re-establish connection!" textFill="RED">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </center>
+                     <bottom>
+                        <VBox alignment="CENTER" prefHeight="50.0" prefWidth="932.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Label text="DANGEROUS!" textFill="RED">
+                                 <font>
+                                    <Font name="Sitka Small" size="96.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </bottom>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </BorderPane>
+                        <BorderPane fx:id="sendMessageBlock" layoutX="-1.0" layoutY="84.0" prefHeight="468.0" prefWidth="923.0">
+                           <center>
+                              <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="21.0" prefWidth="525.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" onAction="#handleSendGetNextExpectedUDPSequenceNumberButton" text="Send">
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Label text="SEND_GET_NEXT_EXPECTED_UDP_SEQUENCE_NUMBER" textFill="#8d2727" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="21.0" prefWidth="594.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" onAction="#handleSendSetNextExpectedUDPSequenceNumberButton" text="Send">
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Label text="SEND_SET_NEXT_EXPECTED_UDP_SEQUENCE_NUMBER (Sets UDP to default original UDP + 4096)" textFill="#8d2727" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets top="5.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="21.0" prefWidth="525.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" onAction="#handleSendGetRemoteHandlePositionButton" text="Send">
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Label text="SEND_GET_REMOTE_HANDLE_POSISTION" textFill="#0623dd" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets top="5.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                              <HBox alignment="CENTER_LEFT" prefHeight="21.0" prefWidth="525.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#handleSendGetPrimaryHandleStatusButton" text="Send">
+                                       <HBox.margin>
+                                          <Insets right="10.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                    <Label text="SEND_GET_PRIMARY_HANDLE_STATUS" textFill="#0623dd" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </HBox>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="21.0" prefWidth="525.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" onAction="#handleSendSetRemoteHandlePositionButtonToggle" text="Send">
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Label text="SEND_SET_REMOTE_HANDLE_POSISTION (Toggle) (Go to &quot;HandlePosition&quot; page to open, close, and toggle)" textFill="#0623dd" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets top="5.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="21.0" prefWidth="525.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" onAction="#handleSendSetManufacturingModeOnButton" text="Send">
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Label text="SEND_SET_MANUFACTURING_MODE_ON" textFill="#eb9812" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets top="5.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="21.0" prefWidth="525.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" onAction="#handleSendSetManufacturingModeOffButton" text="Send">
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Label text="SEND_SET_MANUFACTURING_MODE_OFF" textFill="#eb9812" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets top="5.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="21.0" prefWidth="525.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" onAction="#handleSendGetDeviceStatusButton" text="Send">
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Label text="SEND_GET_DEVICE_STATUS (Go to &quot;Device Status&quot; page to see values in table form)" textFill="#66b5a3" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets top="5.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                              <HBox alignment="CENTER_LEFT" prefHeight="21.0" prefWidth="525.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#handleSendGetMeterTelemetryDataButton" text="Send">
+                                       <HBox.margin>
+                                          <Insets right="10.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                    <Label text="SEND_GET_METER_TELEMETRT_DATA" textFill="#66b5a3" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </HBox>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="21.0" prefWidth="525.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" onAction="#handleSendSetLEDToUserDefinedColourButton" text="Send">
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Label text="SEND_SET_LED_TO_USER_DEFINED_COLOUR" textFill="#c3289e" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets top="5.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="21.0" prefWidth="525.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" onAction="#handleSendGetBreakerEOLCalibParamButton" text="Send">
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Label text="SEND_GET_BREAKER_EOL_CALIB_PARAM" textFill="#576786" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets top="5.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="21.0" prefWidth="525.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" onAction="#handleSendSetBreakerEOLCalibParamButton" text="Send">
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Label text="SEND_SET_BREAKER_EOL_CALIB_PARAM (Sets calib param to default values. Go to &quot;EOL Calib Param&quot; page to set custom values)" textFill="#576786" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets top="5.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                              <HBox alignment="CENTER_LEFT" prefHeight="21.0" prefWidth="525.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#handleTESTsendButton" text="Send">
+                                       <HBox.margin>
+                                          <Insets right="10.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                    <Label text="test (please ignore)" textFill="#576786" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" prefHeight="21.0" prefWidth="525.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#handleSendResetEnergyButton" text="Send">
+                                       <HBox.margin>
+                                          <Insets right="10.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                    <Label text="SEND_RESET_ENERGY" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" prefHeight="21.0" prefWidth="525.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#handleSendGetMacAddress" text="Send">
+                                       <HBox.margin>
+                                          <Insets right="10.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                    <Label text="SEND_GET_MAC_ADDRESS" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="7.0" />
+                                 </VBox.margin>
+                              </HBox>
+                                 </children>
+                              </VBox>
+                           </center>
+                           <left>
+                              <VBox prefHeight="378.0" prefWidth="31.0" BorderPane.alignment="CENTER" />
+                           </left>
+                           <right>
+                              <VBox prefHeight="420.0" prefWidth="41.0" BorderPane.alignment="CENTER" />
+                           </right>
+                        </BorderPane>
+                        <BorderPane fx:id="deviceStatusBlock" layoutX="-1.0" layoutY="80.0" prefHeight="468.0" prefWidth="932.0" visible="false" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="80.0">
+                     <top>
+                        <VBox alignment="CENTER" prefHeight="30.0" prefWidth="745.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Label prefHeight="30.0" prefWidth="271.0" text="Manual/Real Time Device Status">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </top>
+                     <left>
+                        <VBox alignment="TOP_CENTER" prefHeight="394.0" prefWidth="94.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                                 <children>
+                                    <Label text="Real Time" />
+                                    <Label text="Mode:" />
+                                    <Button mnemonicParsing="false" onAction="#handleRealTimeDeviceStatusGETStartButton" text="Start">
+                                       <VBox.margin>
+                                          <Insets top="2.0" />
+                                       </VBox.margin>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#handleRealTimeDeviceStatusGETStopButton" text="Stop">
+                                       <VBox.margin>
+                                          <Insets top="2.0" />
+                                       </VBox.margin>
+                                    </Button>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" prefHeight="31.0" prefWidth="545.0">
+                                 <children>
+                                    <Label text="Manual Mode: " />
+                                    <Button mnemonicParsing="false" onAction="#handleSendGetDeviceStatusButton" text="Reread">
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" top="5.0" />
+                                       </VBox.margin></Button>
+                                    <Button mnemonicParsing="false" onAction="#handleDeviceStatusBlockReadAvgButton" text="Read avg" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="20.0" />
+                                 </VBox.margin>
+                                 <padding>
+                                    <Insets right="5.0" />
+                                 </padding>
+                              </VBox>
+                              <Button mnemonicParsing="false" onAction="#handleDeviceStatusBlockRefreshTableButton" text="Clear Table">
+                                 <VBox.margin>
+                                    <Insets top="50.0" />
+                                 </VBox.margin>
+                              </Button>
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" top="5.0" />
+                           </padding>
+                           <BorderPane.margin>
+                              <Insets right="5.0" />
+                           </BorderPane.margin></VBox>
+                     </left>
+                     <bottom>
+                        <VBox alignment="CENTER" prefHeight="11.0" prefWidth="932.0" BorderPane.alignment="CENTER" />
+                     </bottom>
+                     <center>
+                        <HBox alignment="TOP_CENTER" prefHeight="339.0" prefWidth="749.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <TableView fx:id="deviceStatusMiscTable" prefHeight="424.0" prefWidth="217.0">
+                                 <HBox.margin>
+                                    <Insets right="5.0" />
+                                 </HBox.margin>
+                              </TableView>
+                              <TableView fx:id="deviceStatusPhaseATable" prefHeight="273.0" prefWidth="300.0">
+                                 <HBox.margin>
+                                    <Insets right="5.0" />
+                                 </HBox.margin>
+                              </TableView>
+                              <TableView fx:id="deviceStatusPhaseBTable" prefHeight="273.0" prefWidth="300.0" />
+                           </children>
+                        </HBox>
+                     </center>
+                     <right>
+                        <VBox prefHeight="424.0" prefWidth="25.0" BorderPane.alignment="CENTER" />
+                     </right>
+                        </BorderPane>
+                  <BorderPane fx:id="EOLCalibParamBlock" layoutY="84.0" prefHeight="468.0" prefWidth="904.0" visible="false">
+                     <top>
+                        <VBox alignment="CENTER" prefHeight="28.0" prefWidth="904.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Label text="Important: Turn on manufacturing mode in order for commands on this page to work correctly." textFill="RED" />
+                           </children></VBox>
+                     </top>
+                     <left>
+                        <VBox alignment="CENTER" prefHeight="453.0" prefWidth="300.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <HBox alignment="CENTER_LEFT" prefHeight="35.0" prefWidth="290.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#handleSendGetBreakerEOLCalibParamButton" text="Get">
+                                       <HBox.margin>
+                                          <Insets right="5.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                    <Label text="Get EOL Calibration Parameters" />
+                                 </children>
+                              </HBox>
+                              <TableView fx:id="calibParamTable" prefHeight="273.0" prefWidth="290.0" />
+                              <Button mnemonicParsing="false" onAction="#handleEOLCalibParamBlockClearTableButton" text="Clear Table">
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </Button>
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                           <BorderPane.margin>
+                              <Insets left="100.0" />
+                           </BorderPane.margin>
+                        </VBox>
+                     </left>
+                     <right>
+                        <VBox alignment="CENTER" prefHeight="453.0" prefWidth="284.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="292.0" prefWidth="281.0" style="-fx-border-color: black;">
+                                 <children>
+                                    <AnchorPane prefHeight="28.0" prefWidth="284.0">
+                                       <children>
+                                          <TextField fx:id="Ade9000_APhCal0Field" text="0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                          <Label text="APhCal0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                       </VBox.margin>
+                                    </AnchorPane>
+                                    <AnchorPane prefHeight="28.0" prefWidth="284.0">
+                                       <children>
+                                          <Label text="AiGain" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                          <TextField fx:id="Ade9000_AiGainField" text="0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                       </VBox.margin>
+                                    </AnchorPane>
+                                    <AnchorPane prefHeight="28.0" prefWidth="284.0">
+                                       <children>
+                                          <Label text="AiRmsSOS" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                          <TextField fx:id="Ade9000_AiRmsSOSField" text="0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                       </VBox.margin>
+                                    </AnchorPane>
+                                    <AnchorPane prefHeight="28.0" prefWidth="284.0">
+                                       <children>
+                                          <Label text="ApGain" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                          <TextField fx:id="Ade9000_ApGainField" text="0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                       </VBox.margin>
+                                    </AnchorPane>
+                                    <AnchorPane prefHeight="28.0" prefWidth="284.0">
+                                       <children>
+                                          <Label text="AvGain" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                          <TextField fx:id="Ade9000_AvGainField" text="0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                       </VBox.margin>
+                                    </AnchorPane>
+                                    <AnchorPane prefHeight="28.0" prefWidth="284.0">
+                                       <children>
+                                          <Label text="BPhCal0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                          <TextField fx:id="Ade9000_BPhCal0Field" text="0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                       </VBox.margin>
+                                    </AnchorPane>
+                                    <AnchorPane prefHeight="28.0" prefWidth="284.0">
+                                       <children>
+                                          <Label text="BiGain" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                          <TextField fx:id="Ade9000_BiGainField" text="0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                       </VBox.margin>
+                                    </AnchorPane>
+                                    <AnchorPane prefHeight="28.0" prefWidth="284.0">
+                                       <children>
+                                          <Label text="BiRmsSOS" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                          <TextField fx:id="Ade9000_BiRmsSOSField" text="0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                       </VBox.margin>
+                                    </AnchorPane>
+                                    <AnchorPane prefHeight="28.0" prefWidth="284.0">
+                                       <children>
+                                          <Label text="BpGain" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                          <TextField fx:id="Ade9000_BpGainField" text="0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                       </VBox.margin>
+                                    </AnchorPane>
+                                    <AnchorPane prefHeight="28.0" prefWidth="284.0">
+                                       <children>
+                                          <Label text="BvGain" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                          <TextField fx:id="Ade9000_BvGainField" text="0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                       </VBox.margin>
+                                    </AnchorPane>
+                                 </children>
+                              </VBox>
+                              <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="290.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#handleEOLCalibParamBlockSetButton" text="Set">
+                                       <HBox.margin>
+                                          <Insets right="5.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                    <Label text="Set EOL Calibration Parameters" />
+                                 </children>
+                              </HBox>
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                           <BorderPane.margin>
+                              <Insets right="100.0" />
+                           </BorderPane.margin>
+                        </VBox>
+                     </right>
+                     <bottom>
+                        <HBox alignment="CENTER" prefHeight="52.0" prefWidth="904.0" BorderPane.alignment="CENTER" />
+                     </bottom>
+                  </BorderPane>
+                  <BorderPane fx:id="nextUDPSequenceNumberBlock" layoutX="10.0" layoutY="84.0" prefHeight="478.0" prefWidth="904.0" visible="false">
+                     <top>
+                        <VBox prefHeight="38.0" prefWidth="904.0" BorderPane.alignment="CENTER" />
+                     </top>
+                     <left>
+                        <VBox prefHeight="387.0" prefWidth="51.0" BorderPane.alignment="CENTER" />
+                     </left>
+                     <right>
+                        <VBox prefHeight="387.0" prefWidth="41.0" BorderPane.alignment="CENTER" />
+                     </right>
+                     <center>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <HBox alignment="CENTER" prefHeight="172.0" prefWidth="704.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#handleSendGetNextExpectedUDPSequenceNumberButton" text="Get Next UDP Sequence Number">
+                                       <HBox.margin>
+                                          <Insets right="10.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                    <TableView fx:id="nextUDPSeqTable" prefHeight="172.0" prefWidth="418.0" />
+                                    <Button mnemonicParsing="false" onAction="#handleNextUDPseqBlockClearTableButton" text="Clear Table">
+                                       <HBox.margin>
+                                          <Insets left="10.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="50.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="34.0" prefWidth="704.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#handleNextUDPSeqNumBlockSetNextUDPSequeneNumberButton" text="Set Next UDP Sequence Number">
+                                       <HBox.margin>
+                                          <Insets right="10.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                    <Label text="0x">
+                                       <HBox.margin>
+                                          <Insets right="1.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <TextField fx:id="setNextUDPSequenceNumberInputField" prefHeight="25.0" prefWidth="301.0" promptText="Next UDP Seq Number IN 32-bit HEX, eg 00001234" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </center>
+                     <bottom>
+                        <VBox prefHeight="53.0" prefWidth="904.0" BorderPane.alignment="CENTER" />
+                     </bottom>
+                  </BorderPane>
+                  <BorderPane fx:id="manufacturingModeBlock" layoutX="14.0" layoutY="84.0" prefHeight="468.0" prefWidth="904.0" visible="false">
+                     <top>
+                        <VBox prefHeight="124.0" prefWidth="904.0" BorderPane.alignment="CENTER" />
+                     </top>
+                     <left>
+                        <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+                     </left>
+                     <right>
+                        <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+                     </right>
+                     <center>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#handleSendSetManufacturingModeOnButton" text="Set Manufacturing Mode On">
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#handleSendSetManufacturingModeOffButton" text="Set Manufacturing Mode Off" />
+                           </children>
+                        </VBox>
+                     </center>
+                     <bottom>
+                        <VBox prefHeight="128.0" prefWidth="904.0" BorderPane.alignment="CENTER" />
+                     </bottom>
+                  </BorderPane>
+                  <BorderPane fx:id="handlePositionBlock" layoutX="10.0" layoutY="84.0" prefHeight="468.0" prefWidth="904.0" visible="false">
+                     <top>
+                        <VBox prefHeight="57.0" prefWidth="904.0" BorderPane.alignment="CENTER" />
+                     </top>
+                     <left>
+                        <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+                     </left>
+                     <right>
+                        <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+                     </right>
+                     <bottom>
+                        <VBox prefHeight="85.0" prefWidth="904.0" BorderPane.alignment="CENTER" />
+                     </bottom>
+                     <center>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <HBox alignment="CENTER" prefHeight="63.0" prefWidth="704.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#handleHandlePositionBlockGetBothHandlePositionButton" text="GET Current Handle (both) Position">
+                                       <HBox.margin>
+                                          <Insets right="5.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                    <Label text="(not required if you pressed either the toggle, close, or open button)" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="178.0" prefWidth="704.0">
+                                 <children>
+                                    <VBox alignment="TOP_CENTER" prefHeight="230.0" prefWidth="230.0">
+                                       <children>
+                                          <Label text="Primary">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <VBox alignment="CENTER" prefHeight="250.0" prefWidth="195.0" style="-fx-border-color: black; -fx-background-color: white;">
+                                             <children>
+                                                <Label fx:id="handlePositionPrimaryLabel" text="N/A">
+                                                   <font>
+                                                      <Font size="60.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                       <HBox.margin>
+                                          <Insets right="5.0" />
+                                       </HBox.margin>
+                                    </VBox>
+                                    <VBox alignment="TOP_CENTER" prefHeight="230.0" prefWidth="230.0">
+                                       <children>
+                                          <Label text="Secondary">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <VBox alignment="CENTER" prefHeight="250.0" prefWidth="100.0" style="-fx-border-color: black; -fx-background-color: white;">
+                                             <children>
+                                                <Label fx:id="handlePositionSecondaryLabel" text="N/A">
+                                                   <font>
+                                                      <Font size="60.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                       <HBox.margin>
+                                          <Insets left="5.0" />
+                                       </HBox.margin>
+                                    </VBox>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <ButtonBar maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="209.0">
+                                <buttons>
+                                  <Button mnemonicParsing="false" onAction="#handleSendSetRemoteHandlePositionButtonOpen" text="Open" />
+                                    <Button mnemonicParsing="false" onAction="#handleSendSetRemoteHandlePositionButtonClose" text="Close" />
+                                    <Button mnemonicParsing="false" onAction="#handleSendSetRemoteHandlePositionButtonToggle" text="Toggle" />
+                                </buttons>
+                              </ButtonBar>
+                           </children>
+                        </VBox>
+                     </center>
+                  </BorderPane>
+                  <BorderPane fx:id="setLEDBlock" layoutX="14.0" layoutY="84.0" prefHeight="468.0" prefWidth="904.0" visible="false">
+                     <center>
+                        <Label text="LED!!!" BorderPane.alignment="CENTER" />
+                     </center>
+                  </BorderPane>
+                  <BorderPane fx:id="sbOmicYokoBlock" layoutX="-1.0" layoutY="75.0" prefHeight="478.0" prefWidth="932.0" visible="false">
+                     <top>
+                        <HBox alignment="CENTER" prefHeight="35.0" prefWidth="932.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Label text="Control all three SB, Omicron, and Yokogawa here">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </top>
+                     <bottom>
+                        <HBox prefHeight="8.0" prefWidth="932.0" BorderPane.alignment="CENTER" />
+                     </bottom>
+                     <left>
+                        <VBox prefHeight="436.0" prefWidth="11.0" BorderPane.alignment="CENTER" />
+                     </left>
+                     <right>
+                        <VBox prefHeight="436.0" prefWidth="11.0" BorderPane.alignment="CENTER" />
+                     </right>
+                     <center>
+                        <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <VBox alignment="TOP_CENTER" prefHeight="436.0" prefWidth="301.0" style="-fx-border-color: black;">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <children>
+                                    <Label text="Breaker">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                    </Label>
+                                    <AnchorPane prefHeight="25.0" prefWidth="258.0">
+                                       <VBox.margin>
+                                          <Insets top="2.0" />
+                                       </VBox.margin>
+                                       <children>
+                                          <Label text="Phase A Voltage" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                          <HBox alignment="CENTER" prefHeight="200.0" prefWidth="128.0" style="-fx-border-color: black;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <children>
+                                                <Label fx:id="sbOmicYokoOmicSettingsPhAVoltageSBLabel" text="-" />
+                                                <Label text="   (" />
+                                                <Label fx:id="sbOmicYokoOmicSettingsPhAVoltagePercentSBLabel" text="±N" />
+                                                <Label text="\%)" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane prefHeight="25.0" prefWidth="258.0">
+                                       <children>
+                                          <Label text="Phase A Current" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                          <HBox alignment="CENTER" prefHeight="200.0" prefWidth="128.0" style="-fx-border-color: black;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <children>
+                                                <Label fx:id="sbOmicYokoOmicSettingsPhACurrentSBLabel" text="-" />
+                                                <Label text="   (" />
+                                                <Label fx:id="sbOmicYokoOmicSettingsPhACurrentPercentSBLabel" text="±N" />
+                                                <Label text="\%)" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets top="2.0" />
+                                       </VBox.margin>
+                                    </AnchorPane>
+                                    <AnchorPane prefHeight="25.0" prefWidth="258.0">
+                                       <children>
+                                          <Label text="Phase A Real Power" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                          <HBox alignment="CENTER" prefHeight="200.0" prefWidth="128.0" style="-fx-border-color: black;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <children>
+                                                <Label fx:id="sbOmicYokoOmicSettingsPhARealPowerSBLabel" text="-" />
+                                                <Label text="   (" />
+                                                <Label fx:id="sbOmicYokoOmicSettingsPhARealPowerPercentSBLabel" text="±N" />
+                                                <Label text="\%)" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets top="2.0" />
+                                       </VBox.margin>
+                                    </AnchorPane>
+                                    <AnchorPane prefHeight="25.0" prefWidth="258.0">
+                                       <children>
+                                          <Label text="Phase A Reactive Power" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                          <HBox alignment="CENTER" prefHeight="200.0" prefWidth="128.0" style="-fx-border-color: black;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <children>
+                                                <Label fx:id="sbOmicYokoOmicSettingsPhAReactivePowerSBLabel" text="-" />
+                                                <Label text="   (" />
+                                                <Label fx:id="sbOmicYokoOmicSettingsPhAReactivePowerPercentSBLabel" text="±N" />
+                                                <Label text="\%)" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets top="2.0" />
+                                       </VBox.margin>
+                                    </AnchorPane>
+                                    <AnchorPane prefHeight="25.0" prefWidth="258.0">
+                                       <children>
+                                          <Label text="Phase B Voltage" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                          <HBox alignment="CENTER" prefHeight="200.0" prefWidth="128.0" style="-fx-border-color: black;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <children>
+                                                <Label fx:id="sbOmicYokoOmicSettingsPhBVoltageSBLabel" text="-" />
+                                                <Label text="   (" />
+                                                <Label fx:id="sbOmicYokoOmicSettingsPhBVoltagePercentSBLabel" text="±N" />
+                                                <Label text="\%)" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets top="2.0" />
+                                       </VBox.margin>
+                                    </AnchorPane>
+                                    <AnchorPane prefHeight="25.0" prefWidth="258.0">
+                                       <children>
+                                          <Label text="Phase B Current" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                          <HBox alignment="CENTER" prefHeight="200.0" prefWidth="128.0" style="-fx-border-color: black;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <children>
+                                                <Label fx:id="sbOmicYokoOmicSettingsPhBCurrentSBLabel" text="-" />
+                                                <Label text="   (" />
+                                                <Label fx:id="sbOmicYokoOmicSettingsPhBCurrentPercentSBLabel" text="±N" />
+                                                <Label text="\%)" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets top="2.0" />
+                                       </VBox.margin>
+                                    </AnchorPane>
+                                    <AnchorPane prefHeight="25.0" prefWidth="258.0">
+                                       <children>
+                                          <Label text="Phase B Real Power" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                          <HBox alignment="CENTER" prefHeight="200.0" prefWidth="128.0" style="-fx-border-color: black;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <children>
+                                                <Label fx:id="sbOmicYokoOmicSettingsPhBRealPowerSBLabel" text="-" />
+                                                <Label text="   (" />
+                                                <Label fx:id="sbOmicYokoOmicSettingsPhBRealPowerPercentSBLabel" text="±N" />
+                                                <Label text="\%)" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets top="2.0" />
+                                       </VBox.margin>
+                                    </AnchorPane>
+                                    <AnchorPane prefHeight="25.0" prefWidth="258.0">
+                                       <children>
+                                          <Label text="Phase B Reactive Power" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                          <HBox alignment="CENTER" prefHeight="200.0" prefWidth="128.0" style="-fx-border-color: black;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <children>
+                                                <Label fx:id="sbOmicYokoOmicSettingsPhBReactivePowerSBLabel" text="-" />
+                                                <Label text="   (" />
+                                                <Label fx:id="sbOmicYokoOmicSettingsPhBReactivePowerPercentSBLabel" text="±N" />
+                                                <Label text="\%)" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets top="2.0" />
+                                       </VBox.margin>
+                                    </AnchorPane>
+                                    <ButtonBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="200.0">
+                                      <buttons>
+                                          <Button mnemonicParsing="false" onAction="#handleSBOmicYokoBlockDeviceStatusSeePercentDiffButton" text="See % diff" />
+                                        <Button mnemonicParsing="false" onAction="#handleSBOmicYokoBlockDeviceStatusRereadButton" text="Reread (Averaged)" />
+                                      </buttons>
+                                    </ButtonBar>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </VBox>
+                              <VBox prefHeight="436.0" prefWidth="354.0">
+                                 <HBox.margin>
+                                    <Insets left="5.0" />
+                                 </HBox.margin>
+                                 <children>
+                                    <VBox alignment="TOP_CENTER" prefHeight="291.0" prefWidth="304.0" style="-fx-border-color: black;">
+                                       <children>
+                                          <Label text="Omicron Settings">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </Label>
+                                          <AnchorPane prefHeight="19.0" prefWidth="284.0">
+                                             <children>
+                                                <Label text="Phase A Voltage" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                <TextField fx:id="sbOmicYokoOmicSettingsPh0VoltageInputField" prefHeight="25.0" prefWidth="128.0" promptText="120.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets top="2.0" />
+                                             </VBox.margin>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="19.0" prefWidth="284.0">
+                                             <children>
+                                                <Label text="Phase A Voltage Phase" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                <TextField fx:id="sbOmicYokoOmicSettingsPh0VoltagePhaseInputField" prefHeight="25.0" prefWidth="128.0" promptText="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets top="2.0" />
+                                             </VBox.margin>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="19.0" prefWidth="284.0">
+                                             <children>
+                                                <Label text="Phase A Current" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                <TextField fx:id="sbOmicYokoOmicSettingsPh0CurrentInputField" prefWidth="128.0" promptText="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets top="2.0" />
+                                             </VBox.margin>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="19.0" prefWidth="284.0">
+                                             <children>
+                                                <Label text="Phase A Current Phase" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                <TextField fx:id="sbOmicYokoOmicSettingsPh0CurrentPhaseInputField" prefWidth="128.0" promptText="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets top="2.0" />
+                                             </VBox.margin>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="19.0" prefWidth="284.0">
+                                             <children>
+                                                <Label text="Phase B Voltage" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                <TextField fx:id="sbOmicYokoOmicSettingsPh1VoltageInputField" prefHeight="25.0" prefWidth="128.0" promptText="120.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                             </children>
+                                             <padding>
+                                                <Insets top="2.0" />
+                                             </padding>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="19.0" prefWidth="284.0">
+                                             <children>
+                                                <Label text="Phase B Voltage Phase" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                <TextField fx:id="sbOmicYokoOmicSettingsPh1VoltagePhaseInputField" prefHeight="25.0" prefWidth="128.0" promptText="180.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                             </children>
+                                             <padding>
+                                                <Insets top="2.0" />
+                                             </padding>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="19.0" prefWidth="284.0">
+                                             <children>
+                                                <Label text="Phase B Current" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                <TextField fx:id="sbOmicYokoOmicSettingsPh1CurrentInputField" prefWidth="128.0" promptText="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                             </children>
+                                             <padding>
+                                                <Insets top="2.0" />
+                                             </padding>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="19.0" prefWidth="284.0">
+                                             <children>
+                                                <Label text="Phase B Current Phase" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                <TextField fx:id="sbOmicYokoOmicSettingsPh1CurrentPhaseInputField" prefWidth="128.0" promptText="180.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                             </children>
+                                             <padding>
+                                                <Insets top="2.0" />
+                                             </padding>
+                                          </AnchorPane>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                                             <children>
+                                                <ButtonBar prefHeight="25.0" prefWidth="170.0">
+                                                  <buttons>
+                                                    <Button mnemonicParsing="false" onAction="#handleSbOmicYokoBlockTurnOnOmicButton" text="Turn On" />
+                                                      <Button mnemonicParsing="false" onAction="#handleSbOmicYokoBlockTurnOffOmicButton" text="Turn Off" />
+                                                  </buttons>
+                                                </ButtonBar>
+                                                <Circle fx:id="omicronStatusCircle" fill="DODGERBLUE" radius="7.0" stroke="BLACK" strokeType="INSIDE">
+                                                   <HBox.margin>
+                                                      <Insets left="20.0" right="20.0" />
+                                                   </HBox.margin>
+                                                </Circle>
+                                                <Button mnemonicParsing="false" onAction="#handleSbOmicYokoBlockReSetOmicButton" text="Re-Set" />
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets top="7.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </padding>
+                                    </VBox>
+                                    <VBox alignment="TOP_CENTER" prefHeight="147.0" prefWidth="304.0" style="-fx-border-color: black;">
+                                       <VBox.margin>
+                                          <Insets top="5.0" />
+                                       </VBox.margin>
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </padding>
+                                       <children>
+                                          <Label text="Auto Calibration">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </Label>
+                                          <Label text="Recommended Omicron Settings: 120@0,10@-60; 120@180,10@120" textFill="#6f0202">
+                                             <font>
+                                                <Font size="10.0" />
+                                             </font>
+                                          </Label>
+                                          <Label text="If not, after calibrating, it might detect as fail but actually it didn't." textFill="#6f0202">
+                                             <font>
+                                                <Font size="10.0" />
+                                             </font>
+                                          </Label>
+                                          <Button mnemonicParsing="false" onAction="#handleSbOmicYokoBlockAutoCalibrateButton" text="Auto Calibrate">
+                                             <VBox.margin>
+                                                <Insets top="5.0" />
+                                             </VBox.margin>
+                                          </Button>
+                                          <HBox alignment="CENTER" prefHeight="41.0" prefWidth="292.0">
+                                             <children>
+                                                <ProgressIndicator fx:id="autoCalibProcessIndicator" prefHeight="43.0" prefWidth="22.0" visible="false">
+                                                   <HBox.margin>
+                                                      <Insets left="5.0" />
+                                                   </HBox.margin>
+                                                </ProgressIndicator>
+                                                <Label fx:id="autoCalibStatusLabel" text="Status...">
+                                                   <HBox.margin>
+                                                      <Insets left="5.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets top="5.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                          <Button mnemonicParsing="false" onAction="#handleSbOmicYokoBlockAutoCalibrateForceStopButton" text="Force Stop">
+                                             <VBox.margin>
+                                                <Insets bottom="5.0" top="5.0" />
+                                             </VBox.margin>
+                                          </Button>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="436.0" prefWidth="277.0">
+                                 <children>
+                                    <VBox alignment="TOP_CENTER" prefHeight="351.0" prefWidth="281.0" style="-fx-border-color: black;">
+                                       <children>
+                                          <Label text="Yokogawa Readings">
+                                             <padding>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                             </padding>
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </Label>
+                                          <AnchorPane prefHeight="25.0" prefWidth="269.0">
+                                             <children>
+                                                <Label text="Phase A Voltage" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                <VBox alignment="CENTER" prefHeight="25.0" prefWidth="100.0" style="-fx-border-color: black;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <Label fx:id="sbOmicYokoOmicSettingsPhAVoltageYokoLabel" text="-" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets top="2.0" />
+                                             </VBox.margin>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="25.0" prefWidth="269.0">
+                                             <children>
+                                                <Label text="Phase A Current" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: black;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <Label fx:id="sbOmicYokoOmicSettingsPhACurrentYokoLabel" text="-" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets top="2.0" />
+                                             </VBox.margin>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="25.0" prefWidth="269.0">
+                                             <children>
+                                                <Label text="Phase A Real Power" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: black;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <Label fx:id="sbOmicYokoOmicSettingsPhARealPowerYokoLabel" text="-" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets top="2.0" />
+                                             </VBox.margin>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="25.0" prefWidth="269.0">
+                                             <children>
+                                                <Label text="Phase A Reactive Power" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: black;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <Label fx:id="sbOmicYokoOmicSettingsPhAReactivePowerYokoLabel" text="-" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets top="2.0" />
+                                             </VBox.margin>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="25.0" prefWidth="269.0">
+                                             <children>
+                                                <Label text="Phase B Voltage" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: black;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <Label fx:id="sbOmicYokoOmicSettingsPhBVoltageYokoLabel" text="-" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets top="2.0" />
+                                             </VBox.margin>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="25.0" prefWidth="269.0">
+                                             <children>
+                                                <Label text="Phase B Current" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: black;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <Label fx:id="sbOmicYokoOmicSettingsPhBCurrentYokoLabel" text="-" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets top="2.0" />
+                                             </VBox.margin>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="25.0" prefWidth="269.0">
+                                             <children>
+                                                <Label text="Phase B Real Power" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: black;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <Label fx:id="sbOmicYokoOmicSettingsPhBRealPowerYokoLabel" text="-" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets top="2.0" />
+                                             </VBox.margin>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="25.0" prefWidth="269.0">
+                                             <children>
+                                                <Label text="Phase B Reactive Power" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: black;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <Label fx:id="sbOmicYokoOmicSettingsPhBReactivePowerYokoLabel" text="-" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets top="2.0" />
+                                             </VBox.margin>
+                                          </AnchorPane>
+                                          <Button mnemonicParsing="false" onAction="#handleSbOmicYokoBlockYokoRefreshButton" text="Refresh">
+                                             <VBox.margin>
+                                                <Insets top="10.0" />
+                                             </VBox.margin>
+                                          </Button>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </padding>
+                                       <VBox.margin>
+                                          <Insets left="5.0" />
+                                       </VBox.margin>
+                                    </VBox>
+                                    <VBox alignment="TOP_CENTER" prefHeight="99.0" prefWidth="281.0" style="-fx-border-color: black;">
+                                       <VBox.margin>
+                                          <Insets left="5.0" top="5.0" />
+                                       </VBox.margin>
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </padding>
+                                       <children>
+                                          <Label text="Something else...">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </center>
+                  </BorderPane>
+                  <BorderPane fx:id="energyAccumTestBlock" layoutX="-1.0" layoutY="75.0" prefHeight="504.0" prefWidth="932.0" visible="false">
+                     <top>
+                        <VBox prefHeight="15.0" prefWidth="932.0" BorderPane.alignment="CENTER" />
+                     </top>
+                     <bottom>
+                        <VBox prefHeight="23.0" prefWidth="932.0" BorderPane.alignment="CENTER" />
+                     </bottom>
+                     <right>
+                        <VBox prefHeight="462.0" prefWidth="20.0" BorderPane.alignment="CENTER" />
+                     </right>
+                     <center>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="745.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <VBox alignment="TOP_CENTER" prefHeight="440.0" prefWidth="678.0" style="-fx-border-color: black;">
+                                 <HBox.margin>
+                                    <Insets left="5.0" />
+                                 </HBox.margin>
+                                 <padding>
+                                    <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                 </padding>
+                                 <children>
+                                    <Label text="Run Test">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="(Very very very important note: Do NOT close program while test is running, if you want to stop, click &quot;Force Stop&quot;)" textFill="RED">
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <VBox prefHeight="139.0" prefWidth="201.0">
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="18.0" prefWidth="318.0">
+                                             <children>
+                                                <Label text="Set Timer (integers!):" />
+                                                <TextField fx:id="energyAccumTestBlockHourInputField" prefHeight="25.0" prefWidth="95.0" promptText="Hour">
+                                                   <HBox.margin>
+                                                      <Insets left="5.0" right="5.0" />
+                                                   </HBox.margin>
+                                                </TextField>
+                                                <TextField fx:id="energyAccumTestBlockMinInputField" prefHeight="25.0" prefWidth="95.0" promptText="Min">
+                                                   <HBox.margin>
+                                                      <Insets right="5.0" />
+                                                   </HBox.margin>
+                                                </TextField>
+                                                <TextField fx:id="energyAccumTestBlockSecInputField" prefHeight="25.0" prefWidth="95.0" promptText="Sec">
+                                                   <HBox.margin>
+                                                      <Insets right="5.0" />
+                                                   </HBox.margin>
+                                                </TextField>
+                                                <Button mnemonicParsing="false" onAction="#handleEnergyAccumTestBlockTimeSetButton" text="Set" />
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets bottom="5.0" top="5.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="18.0" prefWidth="318.0">
+                                             <children>
+                                                <Label text="Interval between plots (must be integer ≥ 3000 in ms):" />
+                                                <TextField fx:id="energyAccumTestBlockIntervalInputField" prefHeight="25.0" prefWidth="95.0" promptText="Milliseconds">
+                                                   <HBox.margin>
+                                                      <Insets left="5.0" right="5.0" />
+                                                   </HBox.margin>
+                                                </TextField>
+                                                <Button mnemonicParsing="false" onAction="#handleEnergyAccumTestBlockTimeSetIntervalButton" text="Set" />
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets bottom="5.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                                             <children>
+                                                <Button mnemonicParsing="false" onAction="#handleEnergyAccumTestBlockStartTestButton" text="Start Test">
+                                                   <HBox.margin>
+                                                      <Insets right="5.0" />
+                                                   </HBox.margin>
+                                                </Button>
+                                                <Label text="(Make sure Omicron is connected to your computer and it is RUNNING with the correct settings!)" textFill="RED" />
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets bottom="5.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                          <Button mnemonicParsing="false" onAction="#handleEnergyAccumTestBlockForceStopButton" text="Force Stop">
+                                             <VBox.margin>
+                                                <Insets bottom="5.0" />
+                                             </VBox.margin>
+                                          </Button>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                                             <children>
+                                              <Button mnemonicParsing="false" onAction="#handleEnergyAccumTestBlockShowPlotButton" text="Show Plot" />
+                                                <Label text="(Click this throughout the test to see latest plot, plot will also appear when test is done)">
+                                                   <HBox.margin>
+                                                      <Insets left="5.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                    <ProgressIndicator fx:id="energyAccumTestProcessIndicator" visible="false">
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" top="10.0" />
+                                       </VBox.margin>
+                                    </ProgressIndicator>
+                                    <Label fx:id="energyAccumTestTestStatusLabel" text="Test Status: Inactive">
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="Note: Data is also saved to csv file.">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </center>
+                     <left>
+                        <VBox prefHeight="440.0" prefWidth="20.0" BorderPane.alignment="CENTER" />
+                     </left>
+                  </BorderPane>
+                  <BorderPane fx:id="measurementTestBlock" layoutX="-1.0" layoutY="75.0" prefHeight="504.0" prefWidth="932.0" visible="false">
+                     <top>
+                        <VBox prefHeight="12.0" prefWidth="932.0" BorderPane.alignment="CENTER" />
+                     </top>
+                     <left>
+                        <VBox prefHeight="438.0" prefWidth="30.0" BorderPane.alignment="CENTER" />
+                     </left>
+                     <center>
+                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Label text="Measurement Test">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </Label>
+                              <Label text="(Very very very important note: Do NOT close program while test is running, if you want to stop, click &quot;Force Stop&quot;)" textFill="RED">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <HBox alignment="CENTER" prefHeight="448.0" prefWidth="720.0">
+                                 <children>
+                                    <VBox alignment="TOP_CENTER" prefHeight="393.0" prefWidth="493.0" style="-fx-border-color: black;">
+                                       <HBox.margin>
+                                          <Insets right="5.0" />
+                                       </HBox.margin>
+                                       <children>
+                                          <Label text="Settings">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets bottom="10.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <VBox>
+                                             <children>
+                                                <HBox alignment="CENTER_LEFT" prefHeight="14.0" prefWidth="288.0">
+                                                   <children>
+                                                      <Label text="Currents:" />
+                                                      <TextField fx:id="measurementTestBlockCurrentsTextField" prefHeight="25.0" prefWidth="284.0" promptText="0.15,0.2,0.5,1,2,5,10,20,30">
+                                                         <HBox.margin>
+                                                            <Insets left="5.0" />
+                                                         </HBox.margin>
+                                                      </TextField>
+                                                   </children>
+                                                </HBox>
+                                                <Label text="(Note: Enter as many as you like, just make sure it is separated with commas)">
+                                                   <font>
+                                                      <Font size="10.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label text="(Note: Unit is in Amps!)">
+                                                   <font>
+                                                      <Font size="10.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label text="(Note: The default is 0.15,0.2,0.5,1,2,5,10,20,30, you may leave the text box empty if running default)">
+                                                   <font>
+                                                      <Font size="10.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets bottom="5.0" />
+                                             </VBox.margin>
+                                          </VBox>
+                                          <VBox>
+                                             <children>
+                                                <HBox alignment="CENTER_LEFT" prefHeight="14.0" prefWidth="288.0">
+                                                   <children>
+                                                      <Label text="Phases" />
+                                                      <TextField fx:id="measurementTestBlockPhasesTextField" prefHeight="25.0" prefWidth="284.0" promptText="0,60,-30">
+                                                         <HBox.margin>
+                                                            <Insets left="5.0" />
+                                                         </HBox.margin>
+                                                      </TextField>
+                                                   </children>
+                                                </HBox>
+                                                <Label text="(Note: Enter as many as you like, just make sure it is separated with commas)">
+                                                   <font>
+                                                      <Font size="10.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label text="(Note: Enter the angle of current LAGS voltage, so if you enter 60, it means current LAGS voltage by 60)" textFill="RED">
+                                                   <font>
+                                                      <Font size="10.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label text="(Note: If you enter -30, that means current LEADS voltage by 30)">
+                                                   <font>
+                                                      <Font size="10.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label text="(Note: The default is 0,60,-30, you may leave the text box empty if running default)">
+                                                   <font>
+                                                      <Font size="10.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets bottom="5.0" />
+                                             </VBox.margin>
+                                          </VBox>
+                                          <VBox>
+                                             <children>
+                                                <CheckBox fx:id="measurementTestAverageBreakerReadingCheckBox" mnemonicParsing="false" selected="true" text="Average breaker readings (100 Times) for current &lt; 1A">
+                                                   <VBox.margin>
+                                                      <Insets top="5.0" />
+                                                   </VBox.margin>
+                                                </CheckBox>
+                                             </children>
+                                          </VBox>
+                                          <VBox alignment="BOTTOM_LEFT" prefHeight="236.0" prefWidth="481.0">
+                                             <children>
+                                                <Label text="(Note: Please make sure the you turned on the Omicron in the &quot;SmartOmiYoko&quot; page before starting test)" textFill="RED">
+                                                   <font>
+                                                      <Font size="10.0" />
+                                                   </font>
+                                                </Label>
+                                                <ButtonBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="25.0" prefWidth="476.0">
+                                                  <buttons>
+                                                    <Button fx:id="measurementTestBlockForceStopButton" mnemonicParsing="false" onAction="#handleMeasurementTestBlockForceStopButton" text="Force Stop" />
+                                                      <Button fx:id="measurementTestBlockStartButton" mnemonicParsing="false" onAction="#handleMeasurementTestBlockStartButton" text="Start" />
+                                                      <Button fx:id="measurementTestBlockSetSettingsButton" mnemonicParsing="false" onAction="#handleMeasurementTestBlockSetSettingsButton" text="Set Settings" />
+                                                  </buttons>
+                                                </ButtonBar>
+                                             </children>
+                                             <padding>
+                                                <Insets left="5.0" />
+                                             </padding>
+                                          </VBox>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </padding>
+                                    </VBox>
+                                    <VBox alignment="TOP_CENTER" prefHeight="393.0" prefWidth="334.0" style="-fx-border-color: black;">
+                                       <HBox.margin>
+                                          <Insets left="5.0" />
+                                       </HBox.margin>
+                                       <children>
+                                          <Label text="Result">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets bottom="10.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="97.0" prefWidth="322.0">
+                                             <children>
+                                                <Label text="Test Status:" />
+                                                <VBox prefHeight="52.0" prefWidth="260.0">
+                                                   <children>
+                                                      <ProgressIndicator fx:id="measurementTestProcessIndicator" prefHeight="68.0" prefWidth="78.0" visible="false" />
+                                                      <Label fx:id="measurementTestStatusLabel" maxWidth="260.0" prefHeight="17.0" prefWidth="260.0" text="Inactive">
+                                                         <VBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                   </children>
+                                                   <padding>
+                                                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                   </padding>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                          <VBox alignment="BOTTOM_LEFT" prefHeight="318.0" prefWidth="317.0">
+                                             <children>
+                                                <Button fx:id="measurementTestBlockSeePlotButton" mnemonicParsing="false" onAction="#handleMeasurementTestBlockSeePlotButton" text="See Plot" />
+                                                <Label text="(Note: Plot will be shown when test is completed)">
+                                                   <font>
+                                                      <Font size="10.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label text="(Note: This button is just so you can see the plot WHILE test is running)">
+                                                   <font>
+                                                      <Font size="10.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets left="5.0" />
+                                             </VBox.margin>
+                                          </VBox>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </padding>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </VBox>
+                     </center>
+                     <right>
+                        <VBox prefHeight="438.0" prefWidth="30.0" BorderPane.alignment="CENTER" />
+                     </right>
+                     <bottom>
+                        <VBox prefHeight="24.0" prefWidth="932.0" BorderPane.alignment="CENTER" />
+                     </bottom>
+                  </BorderPane>
+                  <BorderPane fx:id="enduranceTestBlock" layoutX="4.0" layoutY="75.0" prefHeight="504.0" prefWidth="923.0" visible="false">
+                     <top>
+                        <VBox alignment="CENTER" prefHeight="38.0" prefWidth="923.0">
+                           <children>
+                              <Label text="Endurance Test">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </Label>
+                           </children></VBox>
+                     </top>
+                     <bottom>
+                        <VBox prefHeight="34.0" prefWidth="923.0" BorderPane.alignment="CENTER" />
+                     </bottom>
+                     <left>
+                        <VBox prefHeight="406.0" prefWidth="72.0" BorderPane.alignment="CENTER" />
+                     </left>
+                     <right>
+                        <VBox prefHeight="406.0" prefWidth="76.0" BorderPane.alignment="CENTER" />
+                     </right>
+                     <center>
+                        <VBox alignment="CENTER" prefHeight="431.0" prefWidth="775.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <VBox alignment="TOP_CENTER" maxWidth="-Infinity" prefHeight="157.0" prefWidth="594.0" style="-fx-border-color: black;">
+                                 <children>
+                                    <Label text="Test Settings">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="(Note: This test requires special modified firmware!)" textFill="RED">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font>
+                                    </Label>
+                                    <VBox alignment="CENTER" prefWidth="411.0">
+                                       <children>
+                                          <HBox alignment="CENTER" maxWidth="-Infinity" prefWidth="400.0">
+                                             <children>
+                                                <Label text="Cycle Time (ms) (MUST &gt;= 3000ms):">
+                                                   <HBox.margin>
+                                                      <Insets right="5.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                                <TextField fx:id="enduranceTestBlockCycleTImeInputField" maxWidth="-Infinity" prefHeight="25.0" prefWidth="108.0" promptText="milli-second" text="5000" />
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets top="4.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                          <HBox alignment="CENTER" maxWidth="-Infinity" prefWidth="400.0">
+                                             <children>
+                                                <Label text="Time after cycle start to get reading (ms):">
+                                                   <HBox.margin>
+                                                      <Insets right="5.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                                <TextField fx:id="enduranceTestBlockTimeSinceCycleInputField" maxWidth="-Infinity" prefHeight="25.0" prefWidth="108.0" promptText="milli-second" text="1000" />
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets top="4.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="3.0" top="3.0" />
+                                       </VBox.margin>
+                                    </VBox>
+                                    <Label text="(After you press Start, your cursor will move in a circle every five minutes to combat Windows' sleep feature)" textFill="RED">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font>
+                                    </Label>
+                                    <HBox alignment="BOTTOM_CENTER" prefHeight="9.0" prefWidth="488.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" onAction="#handleEnduranceTestBlockApplySettingsButton" text="Apply Settings">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Button mnemonicParsing="false" onAction="#handleStartMikeEnduranceTestStartButton" text="Start Test" />
+                                          <Button mnemonicParsing="false" onAction="#handleStartMikeEnduranceTestStopButton" text="Stop Test">
+                                             <HBox.margin>
+                                                <Insets left="5.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets top="4.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </VBox>
+                              <VBox alignment="TOP_CENTER" prefHeight="265.0" prefWidth="775.0" style="-fx-border-color: black;">
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                                 <children>
+                                    <Label text="Test Results">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <HBox alignment="CENTER" prefHeight="102.0" prefWidth="763.0">
+                                       <children>
+                                          <VBox prefHeight="159.0" prefWidth="351.0" style="-fx-border-color: black;">
+                                             <padding>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                             </padding>
+                                             <children>
+                                                <AnchorPane prefHeight="27.0" prefWidth="339.0">
+                                                   <children>
+                                                      <Label text="# of Attempts" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="150.0" style="-fx-border-color: black;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                         <children>
+                                                            <Label fx:id="enduranceTestBlockNumOfAttemptsLabel" text="-" />
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                   <VBox.margin>
+                                                      <Insets bottom="3.0" />
+                                                   </VBox.margin>
+                                                </AnchorPane>
+                                                <AnchorPane prefHeight="27.0" prefWidth="339.0">
+                                                   <children>
+                                                      <Label text="# of Failed Opens" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="150.0" style="-fx-border-color: black;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                         <children>
+                                                            <Label fx:id="enduranceTestBlockNumOfFailedOpensLabel" text="-" />
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                   <VBox.margin>
+                                                      <Insets bottom="3.0" />
+                                                   </VBox.margin>
+                                                </AnchorPane>
+                                                <AnchorPane prefHeight="27.0" prefWidth="339.0">
+                                                   <children>
+                                                      <Label text="# of Failed Closes" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="150.0" style="-fx-border-color: black;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                         <children>
+                                                            <Label fx:id="enduranceTestBlockNumOfFailedClosesLabel" text="-" />
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                   <VBox.margin>
+                                                      <Insets bottom="3.0" />
+                                                   </VBox.margin>
+                                                </AnchorPane>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                    <ProgressIndicator fx:id="enduranceTestBlockTestRunningProgressIndicator" visible="false">
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" top="10.0" />
+                                       </VBox.margin>
+                                    </ProgressIndicator>
+                                    <Label fx:id="enduranceTestBlockTestRunningStatusLabel" text="Test Not Running" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                     </center>
+                  </BorderPane>
+                  <BorderPane fx:id="tripCodeBlock" layoutX="14.0" layoutY="85.0" prefHeight="504.0" prefWidth="923.0" visible="false">
+                     <top>
+                        <VBox alignment="CENTER" prefHeight="38.0" prefWidth="923.0">
+                           <children>
+                              <Label text="Trip Codes" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </top>
+                     <bottom>
+                        <VBox prefHeight="34.0" prefWidth="923.0" BorderPane.alignment="CENTER" />
+                     </bottom>
+                     <left>
+                        <VBox prefHeight="406.0" prefWidth="72.0" BorderPane.alignment="CENTER" />
+                     </left>
+                     <right>
+                        <VBox prefHeight="406.0" prefWidth="76.0" BorderPane.alignment="CENTER" />
+                     </right>
+                     <center>
+                        <VBox alignment="CENTER" prefHeight="431.0" prefWidth="775.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <HBox prefHeight="431.0" prefWidth="200.0">
+                                 <children>
+                                    <VBox prefHeight="240.0" prefWidth="340.0">
+                                       <children>
+                                          <Label text="Reference Table for Trip Codes" textAlignment="CENTER" />
+                                          <HBox prefHeight="50.0" prefWidth="200.0">
+                                             <children>
+                                                <TextField fx:id="searchTripCode" prefWidth="120.0" promptText="Search Code" />
+                                                <ChoiceBox fx:id="codeChoice" accessibleRole="MENU_BUTTON" prefWidth="60.0">
+                                                   <HBox.margin>
+                                                      <Insets left="5.0" />
+                                                   </HBox.margin></ChoiceBox>
+                                                <Button fx:id="searchCodeButton" mnemonicParsing="false" onAction="#searchCodeFromTripReferenceTable" prefWidth="80.0" text="Search">
+                                                   <HBox.margin>
+                                                      <Insets left="5.0" />
+                                                   </HBox.margin>
+                                                </Button>
+                                                <Button fx:id="clearCodeButton" mnemonicParsing="false" onAction="#clearTripCodeFromReferenceTable" prefWidth="80.0" text="Clear">
+                                                   <HBox.margin>
+                                                      <Insets left="5.0" />
+                                                   </HBox.margin>
+                                                </Button>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets top="10.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                          <TableView fx:id="tripCodeReferenceTable" prefHeight="340.0" prefWidth="220.0" />
+                                       </children>
+                                    </VBox>
+                                    <VBox prefHeight="10.0" prefWidth="80.0" />
+                                    <VBox prefHeight="240.0" prefWidth="400.0">
+                                       <children>
+                                          <Button fx:id="sendTripButton" mnemonicParsing="false" onAction="#handleSendTripCodeButton" text="Get Trip Code">
+                                             <VBox.margin>
+                                                <Insets bottom="20.0" left="150.0" top="10.0" />
+                                             </VBox.margin>
+                                          </Button>
+                                          <TableView fx:id="tripCodeTable" prefHeight="380.0" prefWidth="200.0" />
+                                          <Button fx:id="clearTripButton" mnemonicParsing="false" onAction="#handleTripCodeClearTableButton" text="Clear Table">
+                                             <VBox.margin>
+                                                <Insets left="150.0" top="5.0" />
+                                             </VBox.margin>
+                                          </Button>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </center>
+                  </BorderPane>
+                        <VBox fx:id="serialPortOutputBoxContainer" layoutY="457.0" prefHeight="194.0" prefWidth="745.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                           <children>
+                              <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                                 <content>
+                                    <VBox fx:id="serialPortOutputBoxContent" prefHeight="200.0" prefWidth="1266.0" />
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                        </VBox>
+                     </children>
+            </AnchorPane>
+      </items>
+    </SplitPane>
+    <HBox id="HBox" alignment="CENTER_LEFT" spacing="5.0" VBox.vgrow="NEVER">
+      <children>
+        <Label maxHeight="1.7976931348623157E308" maxWidth="-1.0" text="SB2 Local Communication Software" HBox.hgrow="ALWAYS">
+          <font>
+            <Font size="11.0" fx:id="x3" />
+          </font>
+          <textFill>
+            <Color red="0.625" green="0.625" blue="0.625" fx:id="x4" />
+          </textFill>
+        </Label>
+        <Pane prefHeight="-1.0" prefWidth="-1.0" HBox.hgrow="ALWAYS" />
+            <HBox alignment="CENTER_LEFT" prefHeight="16.0" prefWidth="117.0">
+               <children>
+              <Label font="$x3" maxWidth="-1.0" text="Serial COM Status" textFill="$x4" HBox.hgrow="NEVER">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Label>
+                  <Circle fx:id="bottomRightStatusCircle" fill="#f22424" radius="7.0" stroke="BLACK" strokeType="INSIDE">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Circle>
+               </children>
+            </HBox>
+      </children>
+      <padding>
+        <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+      </padding>
+    </HBox>
+  </children>
+</VBox>
