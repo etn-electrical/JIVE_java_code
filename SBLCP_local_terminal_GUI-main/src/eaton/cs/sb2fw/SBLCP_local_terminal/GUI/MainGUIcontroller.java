@@ -168,9 +168,9 @@ public class MainGUIcontroller {
 	private int inputtedPort = 32866;										// Default value
 	private String inputtedUDPKey = "ba32b432c6e911edafa10242ac120002";		// Default value
 	private int inputtedBaudRate = 115200;									// Default value
-	private String inputtedSerialCOM = "COM4";								// Default value
-	private String inputtedWifiSSID = "ORBI46";								// Default value
-	private String inputtedWifiPassword = "eatonEaton987";					// Default value
+	private String inputtedSerialCOM = "COM7";								// Default value
+	private String inputtedWifiSSID = "NETGEAR_11N";								// Default value
+	private String inputtedWifiPassword = "sharedsecret";					// Default value
 	
 	private boolean deviceStatusBlockIsPopulated = false;					
 
@@ -2026,6 +2026,8 @@ public class MainGUIcontroller {
         // Deserialize the JSON string into a Map
         java.lang.reflect.Type type = new com.google.gson.reflect.TypeToken<java.util.Map<String, String>>(){}.getType();
         java.util.Map<String, String> map;
+        map = gson.fromJson(rawTripCodeString, type);
+        /*
         try {
         	 map = gson.fromJson(rawTripCodeString, type);
         } catch (JsonSyntaxException e) {
@@ -2050,10 +2052,10 @@ public class MainGUIcontroller {
             	start = start + timestamp + content + end;
         	}
         	
-        	
+        	*/
 //        	rawTripCodeString = "{\"1343892452\":\"21\", \"1343892453\":\"23\", \"1343892454\":\"23\"}";
-        	map = gson.fromJson(start, type);
-        }
+        	//map = gson.fromJson(start, type);
+        //}
         // Convert the Map entries to Pair objects and store them in an ArrayList
         ArrayList<Pair<String, String>> parsedTripCode = new ArrayList<>();
         for (java.util.Map.Entry<String, String> entry : map.entrySet()) {
