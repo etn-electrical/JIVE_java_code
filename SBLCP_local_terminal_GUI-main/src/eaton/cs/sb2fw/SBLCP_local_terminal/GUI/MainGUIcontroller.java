@@ -149,6 +149,8 @@ public class MainGUIcontroller {
 		tripCodeTimeStampColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getKey()));
 		tripCodeCloudReportColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getValue()));
 //		tripCodeTable.getColumns().add(tripCodeCodeColumn);
+		tripCodeTimeStampColumn.prefWidthProperty().bind(tripCodeTable.widthProperty().multiply(0.5));
+		tripCodeCloudReportColumn.prefWidthProperty().bind(tripCodeTable.widthProperty().multiply(0.5));
 		tripCodeTable.getColumns().add(tripCodeTimeStampColumn);
 		tripCodeTable.getColumns().add(tripCodeCloudReportColumn);
 	}
@@ -1312,43 +1314,43 @@ public class MainGUIcontroller {
 	public Boolean selectedBreakerList[] = {false, false, false, false, false, false, false, false, false, false}; 
 	@FXML
 	public void identifyBreakersOnTheNetworkConnectButtonNum1(ActionEvent event) {
-		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "!", null, 0);
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "A", null, 0);
 	}
 	@FXML
 	public void identifyBreakersOnTheNetworkConnectButtonNum2(ActionEvent event) {
-		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "!", null, 0);
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "S", null, 0);
 	}
 	@FXML
 	public void identifyBreakersOnTheNetworkConnectButtonNum3(ActionEvent event) {
-		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "!", null, 0);
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "D", null, 0);
 	}
 	@FXML
 	public void identifyBreakersOnTheNetworkConnectButtonNum4(ActionEvent event) {
-		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "!", null, 0);
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "F", null, 0);
 	}
 	@FXML
 	public void identifyBreakersOnTheNetworkConnectButtonNum5(ActionEvent event) {
-		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "!", null, 0);
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "G", null, 0);
 	}
 	@FXML
 	public void identifyBreakersOnTheNetworkConnectButtonNum6(ActionEvent event) {
-		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "!", null, 0);
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "H", null, 0);
 	}
 	@FXML
 	public void identifyBreakersOnTheNetworkConnectButtonNum7(ActionEvent event) {
-		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "!", null, 0);
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "J", null, 0);
 	}
 	@FXML
 	public void identifyBreakersOnTheNetworkConnectButtonNum8(ActionEvent event) {
-		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "!", null, 0);
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "K", null, 0);
 	}
 	@FXML
 	public void identifyBreakersOnTheNetworkConnectButtonNum9(ActionEvent event) {
-		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "!", null, 0);
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "L", null, 0);
 	}
 	@FXML
 	public void identifyBreakersOnTheNetworkConnectButtonNum10(ActionEvent event) {
-		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "!", null, 0);
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "Z", null, 0);
 	}
 	@FXML
 	public void handleBreakersOnTheNetworkConnectButtonNum1(ActionEvent event) {
@@ -1369,6 +1371,7 @@ public class MainGUIcontroller {
 	}
 	@FXML
 	public void handleBreakersOnTheNetworkConnectButtonNum2(ActionEvent event) {
+		System.out.println("Yess..it hit this NUM2\n");
 		Color green = Color.web("#30eb49");
 		Color white = Color.web("#ffffff");
 		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "W", null, 0);
@@ -1385,6 +1388,7 @@ public class MainGUIcontroller {
 	}
 	@FXML
 	public void handleBreakersOnTheNetworkConnectButtonNum3(ActionEvent event) {
+		System.out.println("Yess..it hit this NUM3\n");
 		Color green = Color.web("#30eb49");
 		Color white = Color.web("#ffffff");
 		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "E", null, 0);

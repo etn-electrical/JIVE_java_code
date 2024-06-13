@@ -64,6 +64,7 @@ public class CallSBLCPCommand {
 		int pre = MainGUIcontroller.currentSB2.getResponseCounter();
    		int post = pre;
    		// Call command
+   		System.out.println(commandChar);
    		sc.sendData(commandChar);
    		
    		if (MAX_TIME_WAITING_MS == 0) return 0;		// If commands like reboot doesnt have a response, dont even bother waiting for the response
