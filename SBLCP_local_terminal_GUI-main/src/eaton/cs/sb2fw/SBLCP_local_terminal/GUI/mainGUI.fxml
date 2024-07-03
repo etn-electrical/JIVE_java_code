@@ -693,11 +693,23 @@
                               </Label>
                            </children>
                         </HBox>
-                        <Button mnemonicParsing="false" onAction="#handleMultipleBreakerConnect" text="Connect">
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#handleMultipleBreakerConnect" text="Connect" />
+                              <MenuButton fx:id="breakerMenuButton" minWidth="120.0" mnemonicParsing="false" text="Breaker">
+                                <items>
+                                  <MenuItem mnemonicParsing="false" text="Action 1" />
+                                  <MenuItem mnemonicParsing="false" text="Action 2" />
+                                </items>
+                                 <HBox.margin>
+                                    <Insets left="110.0" />
+                                 </HBox.margin>
+                              </MenuButton>
+                           </children>
                            <VBox.margin>
-                              <Insets top="15.0" />
+                              <Insets top="10.0" />
                            </VBox.margin>
-                        </Button>
+                        </HBox>
                      </children>
                   </VBox>
                   <VBox fx:id="logContainer" layoutY="457.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="194.0" prefWidth="247.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">

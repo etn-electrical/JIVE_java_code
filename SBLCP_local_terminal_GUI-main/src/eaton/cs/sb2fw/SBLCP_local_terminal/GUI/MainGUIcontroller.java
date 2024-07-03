@@ -142,6 +142,7 @@ public class MainGUIcontroller {
 		
 		systemOutPrintlnAndPrintLog("Populating Serial Ports Menu...", LogLevel.INFO);
 		populateSerialPorts();
+		
 		systemOutPrintlnAndPrintLog("Populated Serial Ports Menu", LogLevel.INFO);
 		
 		populateTripCurveTable();
@@ -358,7 +359,7 @@ public class MainGUIcontroller {
 	private ScrollPane 	logScrollPane,
 						deviceStatusScrollPane;
 	@FXML
-	private MenuButton ipVersionMenuButton, serialPortMenuButton;
+	private MenuButton ipVersionMenuButton, serialPortMenuButton, breakerMenuButton;
 	@FXML
 	private MenuItem topMenuFileQuit;
 	@FXML
@@ -1229,6 +1230,13 @@ public class MainGUIcontroller {
     }
 	
 	@FXML
+    public void handleBreakerSelectionMenuItemAction(ActionEvent event) {
+		MenuItem selectedItem = (MenuItem) event.getSource();
+        String selectedText = selectedItem.getText();
+        breakerMenuButton.setText(selectedText);
+	}
+	
+	@FXML
 	public void handleCustomMessageBlockClearOutputButton(ActionEvent event) {
 	    Platform.runLater(() -> {
 	        serialPortOutputBoxContent.getChildren().clear();
@@ -1536,7 +1544,7 @@ public class MainGUIcontroller {
 		Color green = Color.web("#30eb49");
 		Color white = Color.web("#ffffff");
 		// call the udp command now - Need this from Rahul
-		
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, Arrays.toString(selectedBreakerList), null, 0);
 		ipAddressCircleForNum1.setFill(selectedBreakerList[0] == true? green: white);
 		ipAddressCircleForNum2.setFill(selectedBreakerList[1] == true? green: white);
 		ipAddressCircleForNum3.setFill(selectedBreakerList[2] == true? green: white);
@@ -1576,6 +1584,7 @@ public class MainGUIcontroller {
             Pair<String, String> pair = new Pair<>(entry.getKey(), entry.getValue());
             parsedBreakersIPList.add(pair);
         }
+        //populateBreakersForMenu();
 	}
 	public void populateBreakersOnTheNetworkSection() {
 		Platform.runLater(() -> {
@@ -2965,6 +2974,17 @@ public class MainGUIcontroller {
             
             serialPortMenuButton.getItems().add(newMenuItem);
         }
+	}
+	
+	private void populateBreakersForMenu() {
+		
+		for (int i = 0; i < parsedBreakersIPList.size(); ++i) {
+			MenuItem newMenuItem = new MenuItem(parsedBreakersIPList.get(i).getValue());
+			newMenuItem.setOnAction(event -> handleBreakerSelectionMenuItemAction(event));
+			breakerMenuButton.getItems().add(newMenuItem);
+		}
+		
+		
 	}
 	
 	@SuppressWarnings("unchecked")
