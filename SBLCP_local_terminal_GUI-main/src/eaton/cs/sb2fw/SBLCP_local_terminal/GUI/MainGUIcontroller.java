@@ -284,8 +284,28 @@ public class MainGUIcontroller {
                     	parsedMacAddress = parseMacAddressJSONstring(deviceMacAddressJSONstring);
                     	System.out.println(parsedMacAddress.get(0).getValue());
                     	Platform.runLater(() -> {
-                			ipAddressLabelForNum1.setText(parsedMacAddress.get(0).getValue().equals("") ? "-" : parsedMacAddress.get(0).getValue());
-                    	});
+                    		if (commandChar == "Q")
+                    		{
+                			ipAddressLabelForNum1.setText(parsedMacAddress.get(0).getValue().equals("") ? "-" : parsedMacAddress.get(0).getValue());}
+                    		else if(commandChar == "W")
+                    		{ipAddressLabelForNum2.setText(parsedMacAddress.get(0).getValue().equals("") ? "-" : parsedMacAddress.get(0).getValue());}
+                    		else if(commandChar == "E")
+                    		{ipAddressLabelForNum3.setText(parsedMacAddress.get(0).getValue().equals("") ? "-" : parsedMacAddress.get(0).getValue());}
+                    		else if(commandChar == "R")
+                    		{ipAddressLabelForNum4.setText(parsedMacAddress.get(0).getValue().equals("") ? "-" : parsedMacAddress.get(0).getValue());}
+                    		else if(commandChar == "T")
+                    		{ipAddressLabelForNum5.setText(parsedMacAddress.get(0).getValue().equals("") ? "-" : parsedMacAddress.get(0).getValue());}
+                    		else if(commandChar == "Y")
+                    		{ipAddressLabelForNum6.setText(parsedMacAddress.get(0).getValue().equals("") ? "-" : parsedMacAddress.get(0).getValue());}
+                    		else if(commandChar == "U")
+                    		{ipAddressLabelForNum7.setText(parsedMacAddress.get(0).getValue().equals("") ? "-" : parsedMacAddress.get(0).getValue());}
+                    		else if(commandChar == "I")
+                    		{ipAddressLabelForNum8.setText(parsedMacAddress.get(0).getValue().equals("") ? "-" : parsedMacAddress.get(0).getValue());}
+                    		else if(commandChar == "O")
+                    		{ipAddressLabelForNum9.setText(parsedMacAddress.get(0).getValue().equals("") ? "-" : parsedMacAddress.get(0).getValue());}
+                    		else if(commandChar == "P")
+                    		{ipAddressLabelForNum10.setText(parsedMacAddress.get(0).getValue().equals("") ? "-" : parsedMacAddress.get(0).getValue());}
+                    		});
                     }
                     
                     
@@ -671,8 +691,19 @@ public class MainGUIcontroller {
 		}
 		
 		serialCom = null;
-		
+		Color white = Color.web("#ffffff");
 		hideProgressIndicatorAndSayDisconnectedOnLabel();
+		// turn off LEDs
+		ipAddressCircleForNum1.setFill(white);
+		ipAddressCircleForNum2.setFill(white);
+		ipAddressCircleForNum3.setFill(white);
+		ipAddressCircleForNum4.setFill(white);
+		ipAddressCircleForNum5.setFill(white);
+		ipAddressCircleForNum6.setFill(white);
+		ipAddressCircleForNum7.setFill(white);
+		ipAddressCircleForNum8.setFill(white);
+		ipAddressCircleForNum9.setFill(white);
+		ipAddressCircleForNum10.setFill(white);
 		
 		ipAddressAnchorPaneForNum1.setDisable(true);
 		ipAddressAnchorPaneForNum2.setDisable(true);
@@ -1359,31 +1390,66 @@ public class MainGUIcontroller {
 	}
 	@FXML
 	public void identifyBreakersOnTheNetworkConnectButtonNum4(ActionEvent event) {
-		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "F", null, 0);
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "R", null, 0);
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "1", null, 0); //send update seq number
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "!", null, 0); // send identify me
+				
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, commandChar, null, 0); // select the breaker again, to the current commandChar
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "1", null, 0);
 	}
 	@FXML
 	public void identifyBreakersOnTheNetworkConnectButtonNum5(ActionEvent event) {
-		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "G", null, 0);
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "T", null, 0);
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "1", null, 0); //send update seq number
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "!", null, 0); // send identify me
+				
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, commandChar, null, 0); // select the breaker again, to the current commandChar
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "1", null, 0);
 	}
 	@FXML
 	public void identifyBreakersOnTheNetworkConnectButtonNum6(ActionEvent event) {
-		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "H", null, 0);
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "Y", null, 0);
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "1", null, 0); //send update seq number
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "!", null, 0); // send identify me
+				
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, commandChar, null, 0); // select the breaker again, to the current commandChar
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "1", null, 0);
 	}
 	@FXML
 	public void identifyBreakersOnTheNetworkConnectButtonNum7(ActionEvent event) {
-		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "J", null, 0);
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "U", null, 0);
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "1", null, 0); //send update seq number
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "!", null, 0); // send identify me
+				
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, commandChar, null, 0); // select the breaker again, to the current commandChar
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "1", null, 0);
 	}
 	@FXML
 	public void identifyBreakersOnTheNetworkConnectButtonNum8(ActionEvent event) {
-		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "K", null, 0);
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "I", null, 0);
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "1", null, 0); //send update seq number
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "!", null, 0); // send identify me
+				
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, commandChar, null, 0); // select the breaker again, to the current commandChar
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "1", null, 0);
 	}
 	@FXML
 	public void identifyBreakersOnTheNetworkConnectButtonNum9(ActionEvent event) {
-		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "L", null, 0);
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "O", null, 0);
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "1", null, 0); //send update seq number
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "!", null, 0); // send identify me
+				
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, commandChar, null, 0); // select the breaker again, to the current commandChar
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "1", null, 0);
 	}
 	@FXML
 	public void identifyBreakersOnTheNetworkConnectButtonNum10(ActionEvent event) {
-		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "Z", null, 0);
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "P", null, 0);	
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "1", null, 0); //send update seq number
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "!", null, 0); // send identify me
+				
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, commandChar, null, 0); // select the breaker again, to the current commandChar
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "1", null, 0);
 	}
 	@FXML
 	public void handleBreakersOnTheNetworkConnectButtonNum1(ActionEvent event) {
@@ -1458,6 +1524,7 @@ public class MainGUIcontroller {
 		ipAddressCircleForNum8.setFill(white);
 		ipAddressCircleForNum9.setFill(white);
 		ipAddressCircleForNum10.setFill(white);
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "1", null, 0);
 	}
 	@FXML
 	public void handleBreakersOnTheNetworkConnectButtonNum5(ActionEvent event) {
@@ -1475,6 +1542,7 @@ public class MainGUIcontroller {
 		ipAddressCircleForNum8.setFill(white);
 		ipAddressCircleForNum9.setFill(white);
 		ipAddressCircleForNum10.setFill(white);
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "1", null, 0);
 	}
 	@FXML
 	public void handleBreakersOnTheNetworkConnectButtonNum6(ActionEvent event) {
@@ -1492,6 +1560,7 @@ public class MainGUIcontroller {
 		ipAddressCircleForNum8.setFill(white);
 		ipAddressCircleForNum9.setFill(white);
 		ipAddressCircleForNum10.setFill(white);
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "1", null, 0);
 	}
 	@FXML
 	public void handleBreakersOnTheNetworkConnectButtonNum7(ActionEvent event) {
@@ -1509,6 +1578,7 @@ public class MainGUIcontroller {
 		ipAddressCircleForNum8.setFill(white);
 		ipAddressCircleForNum9.setFill(white);
 		ipAddressCircleForNum10.setFill(white);
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "1", null, 0);
 	}
 	@FXML
 	public void handleBreakersOnTheNetworkConnectButtonNum8(ActionEvent event) {
@@ -1526,6 +1596,7 @@ public class MainGUIcontroller {
 		ipAddressCircleForNum8.setFill(green);
 		ipAddressCircleForNum9.setFill(white);
 		ipAddressCircleForNum10.setFill(white);
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "1", null, 0);
 	}
 	@FXML
 	public void handleBreakersOnTheNetworkConnectButtonNum9(ActionEvent event) {
@@ -1543,6 +1614,7 @@ public class MainGUIcontroller {
 		ipAddressCircleForNum8.setFill(white);
 		ipAddressCircleForNum9.setFill(green);
 		ipAddressCircleForNum10.setFill(white);
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "1", null, 0);
 	}
 	@FXML
 	public void handleBreakersOnTheNetworkConnectButtonNum10(ActionEvent event) {
@@ -1560,6 +1632,7 @@ public class MainGUIcontroller {
 		ipAddressCircleForNum8.setFill(white);
 		ipAddressCircleForNum9.setFill(white);
 		ipAddressCircleForNum10.setFill(green);
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "1", null, 0);
 	}
 	
 	@FXML
