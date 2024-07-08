@@ -111,6 +111,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.robot.Robot;
 
 
+
 public class MainGUIcontroller {
 	SblcpMessage message_send;
 	SblcpMessage message_receive;
@@ -174,7 +175,7 @@ public class MainGUIcontroller {
 	private String inputtedSerialCOM = "COM7";								// Default value
 	private String inputtedWifiSSID = "NETGEAR_11N";								// Default value
 	private String inputtedWifiPassword = "sharedsecret";					// Default value
-	
+	private String commandChar = "Q";   										// for keeping track of which breaker we are connecting to
 	private boolean deviceStatusBlockIsPopulated = false;					
 
 	public boolean printToSerialPortOutputBox = true;
@@ -1322,15 +1323,39 @@ public class MainGUIcontroller {
 	public Boolean selectedBreakerList[] = {false, false, false, false, false, false, false, false, false, false}; 
 	@FXML
 	public void identifyBreakersOnTheNetworkConnectButtonNum1(ActionEvent event) {
-		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "A", null, 0);
+		//curr_index = main_index 
+		//temp_command_char = CommandChar;
+		
+		
+		//select the breaker
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "Q", null, 0); //select the 1st breaker
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "1", null, 0); //send update seq number
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "!", null, 0); // send identify me
+		
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, commandChar, null, 0); // select the breaker again, to the current commandChar
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "1", null, 0);
+		//index = cu
+		// bring back tar
+		
 	}
 	@FXML
 	public void identifyBreakersOnTheNetworkConnectButtonNum2(ActionEvent event) {
-		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "S", null, 0);
+		//select the breaker
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "W", null, 0); //select the breaker
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "1", null, 0); //send update seq number
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "!", null, 0); // send identify me
+				
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, commandChar, null, 0); // select the breaker again, to the current commandChar
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "1", null, 0);
 	}
 	@FXML
 	public void identifyBreakersOnTheNetworkConnectButtonNum3(ActionEvent event) {
-		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "D", null, 0);
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "E", null, 0); //select the breaker
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "1", null, 0); //send update seq number
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "!", null, 0); // send identify me
+				
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, commandChar, null, 0); // select the breaker again, to the current commandChar
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "1", null, 0);
 	}
 	@FXML
 	public void identifyBreakersOnTheNetworkConnectButtonNum4(ActionEvent event) {
@@ -1364,7 +1389,8 @@ public class MainGUIcontroller {
 	public void handleBreakersOnTheNetworkConnectButtonNum1(ActionEvent event) {
 		Color green = Color.web("#30eb49");
 		Color white = Color.web("#ffffff");
-		var commandChar = "Q";
+		commandChar = "Q";
+		// main_index = 
 		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, commandChar, null, 0);
 		ipAddressCircleForNum1.setFill(green);
 		ipAddressCircleForNum2.setFill(white);
@@ -1376,13 +1402,15 @@ public class MainGUIcontroller {
 		ipAddressCircleForNum8.setFill(white);
 		ipAddressCircleForNum9.setFill(white);
 		ipAddressCircleForNum10.setFill(white);
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "1", null, 0);
 	}
 	@FXML
 	public void handleBreakersOnTheNetworkConnectButtonNum2(ActionEvent event) {
 		System.out.println("Yess..it hit this NUM2\n");
 		Color green = Color.web("#30eb49");
 		Color white = Color.web("#ffffff");
-		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "W", null, 0);
+		commandChar = "W";
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, commandChar, null, 0);
 		ipAddressCircleForNum1.setFill(white);
 		ipAddressCircleForNum2.setFill(green);
 		ipAddressCircleForNum3.setFill(white);
@@ -1393,13 +1421,15 @@ public class MainGUIcontroller {
 		ipAddressCircleForNum8.setFill(white);
 		ipAddressCircleForNum9.setFill(white);
 		ipAddressCircleForNum10.setFill(white);
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "1", null, 0);
 	}
 	@FXML
 	public void handleBreakersOnTheNetworkConnectButtonNum3(ActionEvent event) {
 		System.out.println("Yess..it hit this NUM3\n");
 		Color green = Color.web("#30eb49");
 		Color white = Color.web("#ffffff");
-		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "E", null, 0);
+		commandChar = "E";
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, commandChar, null, 0);
 		ipAddressCircleForNum1.setFill(white);
 		ipAddressCircleForNum2.setFill(white);
 		ipAddressCircleForNum3.setFill(green);
@@ -1410,12 +1440,14 @@ public class MainGUIcontroller {
 		ipAddressCircleForNum8.setFill(white);
 		ipAddressCircleForNum9.setFill(white);
 		ipAddressCircleForNum10.setFill(white);
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "1", null, 0);
 	}
 	@FXML
 	public void handleBreakersOnTheNetworkConnectButtonNum4(ActionEvent event) {
 		Color green = Color.web("#30eb49");
 		Color white = Color.web("#ffffff");
-		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "R", null, 0);
+		commandChar = "R";
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, commandChar, null, 0);
 		ipAddressCircleForNum1.setFill(white);
 		ipAddressCircleForNum2.setFill(white);
 		ipAddressCircleForNum3.setFill(white);
@@ -1431,7 +1463,8 @@ public class MainGUIcontroller {
 	public void handleBreakersOnTheNetworkConnectButtonNum5(ActionEvent event) {
 		Color green = Color.web("#30eb49");
 		Color white = Color.web("#ffffff");
-		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "T", null, 0);
+		commandChar = "T";
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, commandChar, null, 0);
 		ipAddressCircleForNum1.setFill(white);
 		ipAddressCircleForNum2.setFill(white);
 		ipAddressCircleForNum3.setFill(white);
@@ -1447,7 +1480,8 @@ public class MainGUIcontroller {
 	public void handleBreakersOnTheNetworkConnectButtonNum6(ActionEvent event) {
 		Color green = Color.web("#30eb49");
 		Color white = Color.web("#ffffff");
-		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "Y", null, 0);
+		commandChar = "Y";
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, commandChar, null, 0);
 		ipAddressCircleForNum1.setFill(white);
 		ipAddressCircleForNum2.setFill(white);
 		ipAddressCircleForNum3.setFill(white);
@@ -1463,7 +1497,8 @@ public class MainGUIcontroller {
 	public void handleBreakersOnTheNetworkConnectButtonNum7(ActionEvent event) {
 		Color green = Color.web("#30eb49");
 		Color white = Color.web("#ffffff");
-		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "U", null, 0);
+		commandChar = "U";
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, commandChar, null, 0);
 		ipAddressCircleForNum1.setFill(white);
 		ipAddressCircleForNum2.setFill(white);
 		ipAddressCircleForNum3.setFill(white);
@@ -1479,7 +1514,8 @@ public class MainGUIcontroller {
 	public void handleBreakersOnTheNetworkConnectButtonNum8(ActionEvent event) {
 		Color green = Color.web("#30eb49");
 		Color white = Color.web("#ffffff");
-		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "I", null, 0);
+		commandChar = "I";
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, commandChar, null, 0);
 		ipAddressCircleForNum1.setFill(white);
 		ipAddressCircleForNum2.setFill(white);
 		ipAddressCircleForNum3.setFill(white);
@@ -1495,7 +1531,8 @@ public class MainGUIcontroller {
 	public void handleBreakersOnTheNetworkConnectButtonNum9(ActionEvent event) {
 		Color green = Color.web("#30eb49");
 		Color white = Color.web("#ffffff");
-		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "O", null, 0);
+		commandChar = "O";
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, commandChar, null, 0);
 		ipAddressCircleForNum1.setFill(white);
 		ipAddressCircleForNum2.setFill(white);
 		ipAddressCircleForNum3.setFill(white);
@@ -1511,7 +1548,8 @@ public class MainGUIcontroller {
 	public void handleBreakersOnTheNetworkConnectButtonNum10(ActionEvent event) {
 		Color green = Color.web("#30eb49");
 		Color white = Color.web("#ffffff");
-		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "P", null, 0);
+		commandChar = "P";
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, commandChar, null, 0);
 		ipAddressCircleForNum1.setFill(white);
 		ipAddressCircleForNum2.setFill(white);
 		ipAddressCircleForNum3.setFill(white);
