@@ -1039,12 +1039,12 @@
                                     </HBox>
                               <HBox alignment="CENTER_LEFT" prefHeight="21.0" prefWidth="525.0">
                                  <children>
-                                    <Button mnemonicParsing="false" onAction="#handleTESTsendButton" text="Send">
+                                    <Button mnemonicParsing="false" onAction="#handleDeviceLockSendButton" text="Send">
                                        <HBox.margin>
                                           <Insets right="10.0" />
                                        </HBox.margin>
                                     </Button>
-                                    <Label text="test (please ignore)" textFill="#576786" />
+                                    <Label text="SET_DEVICE_LOCK" textFill="#576786" />
                                  </children>
                                  <VBox.margin>
                                     <Insets top="5.0" />

@@ -915,6 +915,18 @@ public class MainGUIcontroller {
 	}
 	
 	
+	@FXML
+	public int handleDeviceLockSendButton(ActionEvent event) {
+		boolean serialComActive = checkSerialComActiveIfNotWarnAndReturnFalse();
+		if (!serialComActive) return -1;
+
+		int temp = CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, CallSBLCPCommand.SET_DEVICE_LOCK, null, NORMAL_TIMEOUT_MS);
+		if (temp < 0) displayNoResponseAlertWindow();
+		return temp;
+	}
+	
+	
+	
 	// TEMP
 	@FXML
 	public void handleTESTsendButton(ActionEvent event) throws InterruptedException {

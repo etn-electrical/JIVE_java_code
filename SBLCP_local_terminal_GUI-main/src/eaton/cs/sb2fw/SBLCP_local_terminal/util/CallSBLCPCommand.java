@@ -46,6 +46,7 @@ public class CallSBLCPCommand {
 	public final static String REBOOT_ESP32								= ")";
 	public final static String GET_TRIP_CODE							= "(";
 	public final static String GET_MAC_ADDRESS							= "-";
+	public final static String SET_DEVICE_LOCK							= "/";
 	/**
 	 * 
 	 * @param sc The serialCom object used to send the data.
