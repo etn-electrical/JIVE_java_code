@@ -65,6 +65,7 @@ public class CallSBLCPCommand {
 		int pre = MainGUIcontroller.currentSB2.getResponseCounter();
    		int post = pre;
    		// Call command
+   		System.out.println("Inside SBLCP_Blocking");
    		System.out.println(commandChar);
    		sc.sendData(commandChar);
    		

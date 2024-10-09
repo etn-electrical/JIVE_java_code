@@ -60,6 +60,8 @@ import eaton.cs.sb2fw.SBLCP_local_terminal.tests.*;
 import java.util.Enumeration;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Calendar;
 import java.util.List;
 import java.util.TimeZone;
@@ -111,7 +113,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.robot.Robot;
 
 
-
 public class MainGUIcontroller {
 	SblcpMessage message_send;
 	SblcpMessage message_receive;
@@ -120,6 +121,9 @@ public class MainGUIcontroller {
 	FileWriter fileWriter;
 	BufferedWriter bufferedWriter;
 	
+	// track what Mac Addresses are already set
+	Set<String> macAddressSet = new HashSet<>();
+
 	/**
 	 * The initialize() method is automatically called by JavaFX when the 
 	 * corresponding FXML file is loaded and the controller is instantiated. 
@@ -175,7 +179,8 @@ public class MainGUIcontroller {
 	private String inputtedSerialCOM = "COM7";								// Default value
 	private String inputtedWifiSSID = "NETGEAR_11N";								// Default value
 	private String inputtedWifiPassword = "sharedsecret";					// Default value
-	private String commandChar = "Q";   										// for keeping track of which breaker we are connecting to
+	private String commandChar = "Q";
+	private int commandCount = 0;// for keeping track of which breaker we are connecting to
 	private boolean deviceStatusBlockIsPopulated = false;					
 
 	public boolean printToSerialPortOutputBox = true;
@@ -194,6 +199,7 @@ public class MainGUIcontroller {
 	 * 2. Sets listening to true.
 	 * 3. Catches JSON Strings that come from the esp32 dev board.
 	 */
+	//public static String outputString;
 	public void startListening() {
 		listening = true;
 		systemOutPrintlnAndPrintLog("Started listening to " + inputtedSerialCOM + ".", LogLevel.INFO);
@@ -221,7 +227,7 @@ public class MainGUIcontroller {
                     }
                     
                     String outputString = stringBuilder.toString();
-                    
+                    outputString = stringBuilder.toString();
                     
                     // Grab and update the response_counter value
                     int foundResponseCounter = findResponseCounterInResponse(outputString);
@@ -280,31 +286,132 @@ public class MainGUIcontroller {
                     }
                     
                     String deviceMacAddressJSONstring = findMacAddressJSONstring(outputString);
+                    //String temp = "";
+                    //int done = 0;
                     if (deviceMacAddressJSONstring != "") {
                     	parsedMacAddress = parseMacAddressJSONstring(deviceMacAddressJSONstring);
                     	System.out.println(parsedMacAddress.get(0).getValue());
+
+						
                     	Platform.runLater(() -> {
-                    		if (commandChar == "Q")
+                    		System.out.println("-------------Inside GET Mac Method-----------------");
+                    		//ipAddressLabelForNum1.setText(parsedMacAddress.get(0).getValue().equals("") ? "-" : parsedMacAddress.get(0).getValue());
+                    		//ipAddressLabelForNum2.setText(parsedMacAddress.get(0).getValue().equals("") ? "-" : parsedMacAddress.get(0).getValue());
+                    		//System.out.println(parsedMacAddress.get(0).getValue());
+
+							// creating  a set to store the mac address
+							
+							
+
+
+                    		//if (parsedMacAddress.get(0).getValue().contains("-0") && commandCount == 0)
+							//if(!macAddressSet.contains(parsedMacAddress.get(0).getValue()) && commandCount == 0)
+                    		if(commandChar == "Q")
                     		{
-                			ipAddressLabelForNum1.setText(parsedMacAddress.get(0).getValue().equals("") ? "-" : parsedMacAddress.get(0).getValue());}
-                    		else if(commandChar == "W")
-                    		{ipAddressLabelForNum2.setText(parsedMacAddress.get(0).getValue().equals("") ? "-" : parsedMacAddress.get(0).getValue());}
-                    		else if(commandChar == "E")
-                    		{ipAddressLabelForNum3.setText(parsedMacAddress.get(0).getValue().equals("") ? "-" : parsedMacAddress.get(0).getValue());}
-                    		else if(commandChar == "R")
-                    		{ipAddressLabelForNum4.setText(parsedMacAddress.get(0).getValue().equals("") ? "-" : parsedMacAddress.get(0).getValue());}
-                    		else if(commandChar == "T")
-                    		{ipAddressLabelForNum5.setText(parsedMacAddress.get(0).getValue().equals("") ? "-" : parsedMacAddress.get(0).getValue());}
-                    		else if(commandChar == "Y")
-                    		{ipAddressLabelForNum6.setText(parsedMacAddress.get(0).getValue().equals("") ? "-" : parsedMacAddress.get(0).getValue());}
-                    		else if(commandChar == "U")
-                    		{ipAddressLabelForNum7.setText(parsedMacAddress.get(0).getValue().equals("") ? "-" : parsedMacAddress.get(0).getValue());}
-                    		else if(commandChar == "I")
-                    		{ipAddressLabelForNum8.setText(parsedMacAddress.get(0).getValue().equals("") ? "-" : parsedMacAddress.get(0).getValue());}
-                    		else if(commandChar == "O")
-                    		{ipAddressLabelForNum9.setText(parsedMacAddress.get(0).getValue().equals("") ? "-" : parsedMacAddress.get(0).getValue());}
-                    		else if(commandChar == "P")
-                    		{ipAddressLabelForNum10.setText(parsedMacAddress.get(0).getValue().equals("") ? "-" : parsedMacAddress.get(0).getValue());}
+                    		System.out.println("--------Inside label 1--------");
+                    		System.out.println(parsedMacAddress.get(0).getValue());
+                    		macAddressSet.add(parsedMacAddress.get(0).getValue());
+                			//ipAddressLabelForNum1.setText(parsedMacAddress.get(0).getValue().equals("") ? "-" : parsedMacAddress.get(0).getValue());
+                    		//Set<String> macAddressSet = new HashSet<>();
+							//macAddressSet.add(parsedMacAddress.get(0).getValue());
+                    		ipAddressLabelForNum1.setText(parsedMacAddress.get(0).getValue().equals("") ? "-" : parsedMacAddress.get(0).getValue());
+                			//commandChar = "W";
+                			commandCount=1;
+                			//handleSendGetMacAddress(null);
+                			
+                			}
+                    		//if(parsedMacAddress.get(0).getValue().contains("-1") && commandCount == 1)
+							//if(!macAddressSet.contains(parsedMacAddress.get(0).getValue()) && commandCount == 1)
+                    		if(commandChar == "W")
+                    		{
+							System.out.println("--------Inside label 2--------");
+                    		//commandChar = "E";
+                    		ipAddressLabelForNum2.setText(parsedMacAddress.get(0).getValue().equals("") ? "-" : parsedMacAddress.get(0).getValue());
+                    		//macAddressSet.add(parsedMacAddress.get(0).getValue());
+                    		//commandCount = 2;
+                    		//handleSendGetMacAddress(null);
+                    		}
+                    		//if(parsedMacAddress.get(0).getValue().contains("-2") && commandCount == 2)
+							//if(!macAddressSet.contains(parsedMacAddress.get(0).getValue())&& commandCount == 2)
+                    		if(commandChar == "E")
+                    		{
+                    		System.out.println("--------Inside label 3--------");
+                    		//commandChar = "R";
+                    		ipAddressLabelForNum3.setText(parsedMacAddress.get(0).getValue().equals("") ? "-" : parsedMacAddress.get(0).getValue());
+                    		macAddressSet.add(parsedMacAddress.get(0).getValue());
+                    		//handleSendGetMacAddress(null);
+                    		commandCount = 3;
+                    		// set parsedMacAddress to ""
+                    		//parsedMacAddress = parseMacAddressJSONstring("");
+                    				
+                    		}
+                    		//if(!macAddressSet.contains(parsedMacAddress.get(0).getValue())&& commandCount == 3)
+                    		//if(parsedMacAddress.get(0).getValue().contains("-2") && commandCount == 2)
+                    		if(commandChar == "R")
+                    		{
+                    		System.out.println("--------Inside label 4--------");
+                    		//commandChar = "T";
+                    		ipAddressLabelForNum4.setText(parsedMacAddress.get(0).getValue().equals("") ? "-" : parsedMacAddress.get(0).getValue());
+                    		macAddressSet.add(parsedMacAddress.get(0).getValue());
+                    		//handleSendGetMacAddress(null);
+                    		commandCount = 4;
+                    		}
+                    		//if(!macAddressSet.contains(parsedMacAddress.get(0).getValue())&& commandCount == 4)
+                    		if(commandChar == "T")
+                    		{
+                    		
+                    		//commandChar = "Y";
+                    		ipAddressLabelForNum5.setText(parsedMacAddress.get(0).getValue().equals("") ? "-" : parsedMacAddress.get(0).getValue());
+                    		macAddressSet.add(parsedMacAddress.get(0).getValue());
+                    		//handleSendGetMacAddress(null);
+                    		commandCount = 5;
+                    		
+                    		}
+                    		//if(parsedMacAddress.get(0).getValue().contains("-5") && commandCount == 5)
+                    		if(commandChar == "Y")
+                    		{
+                    		
+                    		//commandChar = "U";
+                    		ipAddressLabelForNum6.setText(parsedMacAddress.get(0).getValue().equals("") ? "-" : parsedMacAddress.get(0).getValue());
+                    		//handleSendGetMacAddress(null);
+                    		commandCount = 6;
+                    		
+                    		}
+                    		
+                    		//if(parsedMacAddress.get(0).getValue().contains("-5") && commandCount == 6)
+                    		if(commandChar == "U")
+                    		{
+                    		//commandChar = "I";
+                    		ipAddressLabelForNum7.setText(parsedMacAddress.get(0).getValue().equals("") ? "-" : parsedMacAddress.get(0).getValue());
+                    		//handleSendGetMacAddress(null);
+                    		commandCount = 7;
+                    		}
+                    		
+                    		//if(parsedMacAddress.get(0).getValue().contains("-5") && commandCount == 7)
+                    		if(commandChar == "I")
+                    		{
+                    		//commandChar = "O";
+                    		ipAddressLabelForNum8.setText(parsedMacAddress.get(0).getValue().equals("") ? "-" : parsedMacAddress.get(0).getValue());
+                    		//handleSendGetMacAddress(null);
+                    		commandCount = 8;
+                    		}
+                    		
+                    		//if(parsedMacAddress.get(0).getValue().contains("-5") && commandCount == 8)
+                    		if(commandChar == "O")
+                    		{
+                    		//commandChar = "P";
+                    		ipAddressLabelForNum9.setText(parsedMacAddress.get(0).getValue().equals("") ? "-" : parsedMacAddress.get(0).getValue());
+                    		//handleSendGetMacAddress(null);
+                    		commandCount = 9;
+                    		}
+                    		
+                    		//if(parsedMacAddress.get(0).getValue().contains("-5") && commandCount == 9)
+                    		if(commandChar == "P")
+                    		{
+                    		//commandChar = "Q";
+                    		ipAddressLabelForNum10.setText(parsedMacAddress.get(0).getValue().equals("") ? "-" : parsedMacAddress.get(0).getValue());
+                    		commandCount = 1;
+                    		}
                     		});
                     }
                     
@@ -762,9 +869,88 @@ public class MainGUIcontroller {
 	public int handleSendGetMacAddress(ActionEvent event) {
 		boolean serialComActive = checkSerialComActiveIfNotWarnAndReturnFalse();
 		if (!serialComActive) return -1;
-
-		int temp = CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, CallSBLCPCommand.GET_MAC_ADDRESS, null, NORMAL_TIMEOUT_MS);
-		if (temp < 0) displayNoResponseAlertWindow();
+		
+		System.out.println("//--------Inside GetMacAddress Method---------//\n");
+		//String selectedBreakerList[] = {"Q","W","E"};
+		int temp = 0;
+		
+		//for(int j=0;j<2;j++) {
+			//commandChar = selectedBreakerList[j];
+		//	commandChar = selectedBreakerList[j];
+			
+		//------
+		System.out.println(commandChar);
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, commandChar, null, NORMAL_TIMEOUT_MS); //select the 1st breaker
+		
+		/*	try {
+				Thread.sleep(1000);
+				System.out.println("sleep after select breaker");
+				
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}*/
+		
+		
+		CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "1", null, NORMAL_TIMEOUT_MS); //send update seq number
+		/*try {
+			Thread.sleep(1000);
+			System.out.println("sleep after update seq");
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}*/
+		
+		temp = CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, CallSBLCPCommand.GET_MAC_ADDRESS, null, NORMAL_TIMEOUT_MS);
+		
+		//CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, "1", null, NORMAL_TIMEOUT_MS); //send update seq number
+		/*try {
+			Thread.sleep(4000);
+			System.out.println("sleep after mac address");
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}*/
+		
+		//----------------------------
+		//String deviceMacAddressJSONstring = findMacAddressJSONstring(outputString);
+		
+		//parsedMacAddress = parseMacAddressJSONstring(deviceMacAddressJSONstring);
+    	//System.out.println(parsedMacAddress.get(0).getValue());
+    	/*
+    	Platform.runLater(() -> {
+    		//ipAddressLabelForNum1.setText(parsedMacAddress.get(0).getValue().equals("") ? "-" : parsedMacAddress.get(0).getValue());
+    		//ipAddressLabelForNum2.setText(parsedMacAddress.get(0).getValue().equals("") ? "-" : parsedMacAddress.get(0).getValue());
+    		if (parsedMacAddress.get(0).getValue().contains("-0"))
+    		{
+			ipAddressLabelForNum1.setText(parsedMacAddress.get(0).getValue().equals("") ? "-" : parsedMacAddress.get(0).getValue());}
+    		if(parsedMacAddress.get(0).getValue().contains("-1"))
+    		{ipAddressLabelForNum2.setText(parsedMacAddress.get(0).getValue().equals("") ? "-" : parsedMacAddress.get(0).getValue());}
+    		else if(parsedMacAddress.get(0).getValue().contains("-2"))
+    		{ipAddressLabelForNum3.setText(parsedMacAddress.get(0).getValue().equals("") ? "-" : parsedMacAddress.get(0).getValue());}
+    		else if(parsedMacAddress.get(0).getValue().contains("-3"))
+    		{ipAddressLabelForNum4.setText(parsedMacAddress.get(0).getValue().equals("") ? "-" : parsedMacAddress.get(0).getValue());}
+    		else if(parsedMacAddress.get(0).getValue().contains("-4"))
+    		{ipAddressLabelForNum5.setText(parsedMacAddress.get(0).getValue().equals("") ? "-" : parsedMacAddress.get(0).getValue());}
+    		else if(commandChar == "Y")
+    		{ipAddressLabelForNum6.setText(parsedMacAddress.get(0).getValue().equals("") ? "-" : parsedMacAddress.get(0).getValue());}
+    		else if(commandChar == "U")
+    		{ipAddressLabelForNum7.setText(parsedMacAddress.get(0).getValue().equals("") ? "-" : parsedMacAddress.get(0).getValue());}
+    		else if(commandChar == "I")
+    		{ipAddressLabelForNum8.setText(parsedMacAddress.get(0).getValue().equals("") ? "-" : parsedMacAddress.get(0).getValue());}
+    		else if(commandChar == "O")
+    		{ipAddressLabelForNum9.setText(parsedMacAddress.get(0).getValue().equals("") ? "-" : parsedMacAddress.get(0).getValue());}
+    		else if(commandChar == "P")
+    		{ipAddressLabelForNum10.setText(parsedMacAddress.get(0).getValue().equals("") ? "-" : parsedMacAddress.get(0).getValue());}
+    	});
+    	*/
+		//---------------------------------
+		if (temp < 0) {
+			System.out.println(commandChar);
+			System.out.println("/----call_NonCustom_SBLCPcommand_blocking returned -1 ----//\n");
+			//displayNoResponseAlertWindow();
+			}
+		
 		return temp;
 	}
 	
