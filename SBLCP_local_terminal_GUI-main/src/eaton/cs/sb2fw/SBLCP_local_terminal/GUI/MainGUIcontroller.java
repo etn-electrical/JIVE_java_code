@@ -855,7 +855,7 @@ public class MainGUIcontroller {
 	// ####################################################################################
 	// The following code(s) is to handle the "Send Messages" block
 	// ####################################################################################
-	private final int NORMAL_TIMEOUT_MS = 5000;
+	private final int NORMAL_TIMEOUT_MS = 15000;
 	@FXML
 	public int handleSendGetNextExpectedUDPSequenceNumberButton(ActionEvent event) {
 		boolean serialComActive = checkSerialComActiveIfNotWarnAndReturnFalse();
@@ -967,7 +967,7 @@ public class MainGUIcontroller {
 	public int handleSendGetRemoteHandlePositionButton(ActionEvent event) {
 		boolean serialComActive = checkSerialComActiveIfNotWarnAndReturnFalse();
 		if (!serialComActive) return -1;
-
+		
 		int temp = CallSBLCPCommand.call_NonCustom_SBLCPcommand_blocking(serialCom, CallSBLCPCommand.GET_REMOTE_HANDLE_POSISTION, null, NORMAL_TIMEOUT_MS);
 		if (temp < 0) displayNoResponseAlertWindow();
 		return temp;

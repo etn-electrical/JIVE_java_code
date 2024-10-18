@@ -60,8 +60,9 @@ public class CallSBLCPCommand {
 														   Thread t,
 														   int MAX_TIME_WAITING_MS)
 	{
-		final int MAX_INTERVAL_MS = 10;
-		
+		final int MAX_INTERVAL_MS = 50;
+		System.out.println("Max Timeout: ");
+		System.out.println(MAX_INTERVAL_MS);
 		int pre = MainGUIcontroller.currentSB2.getResponseCounter();
    		int post = pre;
    		// Call command
@@ -112,7 +113,7 @@ public class CallSBLCPCommand {
 														Thread t,
 														int MAX_TIME_WAITING_MS)
 	{
-		final int MAX_INTERVAL_MS = 10;
+		final int MAX_INTERVAL_MS = 50;
 		
 		int pre = MainGUIcontroller.currentSB2.getResponseCounter();
    		int post = pre;
