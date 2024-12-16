@@ -1,0 +1,298 @@
+
+
+Version:	3.50
+CmdLine:	C:\Users\E0739939\Documents\__JIVE\JIVE_Java_Code\SBLCP_local_terminal_GUI-main\JIVE.exe --l4j-debug
+JNI:		No
+WOW64:		Yes
+Working dir:	C:\Users\E0739939\Documents\__JIVE\JIVE_Java_Code\SBLCP_local_terminal_GUI-main\.
+Requires JDK:	No
+Requires 64-Bit: No
+Java min ver:	
+Java max ver:	
+Substitute:	JAVA_HOME = 
+Substitute:	PATH = C:\Program Files (x86)\Microsoft\Edge\Application;C:\Program Files (x86)\STMicroelectronics\st_toolset\asm;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\System32\;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\PuTTY\;C:\Program Files\Java\jdk-17\bin;C:\Program Files\Microsoft VS Code\bin;C:\Espressif\tools\idf-python\3.8.7\Scripts;C:\Program Files\Go\bin;C:\Espressif\tools\idf-python\3.8.7\Scripts;C:\Users\E0739939\.cargo\bin;C:\MinGW\bin;C:\Users\E0739939\AppData\Local\Programs\Git\cmd;C:\Users\E0739939\go\bin;C:\Program Files (x86)\GnuWin32\bin;C:\Program Files\Vim\vim91;C:\Program Files\JetBrains\IntelliJ IDEA 2024.1\bin;;C:\Users\E0739939\Downloads\ninja-win_2\ninja-win;C:\Users\E0739939\AppData\Local\Microsoft\WindowsApps;C:\Users\E0739939\AppData\Local\GitHubDesktop\bin;;C:\Program Files\Java\jdk-17\bin
+JRE paths:	;C:\Program Files (x86)\Microsoft\Edge\Application;C:\Program Files (x86)\STMicroelectronics\st_toolset\asm;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\System32\;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\PuTTY\;C:\Program Files\Java\jdk-17\bin;C:\Program Files\Microsoft VS Code\bin;C:\Espressif\tools\idf-python\3.8.7\Scripts;C:\Program Files\Go\bin;C:\Espressif\tools\idf-python\3.8.7\Scripts;C:\Users\E0739939\.cargo\bin;C:\MinGW\bin;C:\Users\E0739939\AppData\Local\Programs\Git\cmd;C:\Users\E0739939\go\bin;C:\Program Files (x86)\GnuWin32\bin;C:\Program Files\Vim\vim91;C:\Program Files\JetBrains\IntelliJ IDEA 2024.1\bin;;C:\Users\E0739939\Downloads\ninja-win_2\ninja-win;C:\Users\E0739939\AppData\Local\Microsoft\WindowsApps;C:\Users\E0739939\AppData\Local\GitHubDesktop\bin;;C:\Program Files\Java\jdk-17\bin
+Check launcher:	C:\Program Files (x86)\Microsoft\Edge\Application\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files (x86)\STMicroelectronics\st_toolset\asm\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\Common Files\Oracle\Java\javapath\bin\javaw.exe (not found)
+Check launcher:	C:\Windows\System32\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\Docker\Docker\resources\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\PuTTY\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\Java\jdk-17\bin\javaw.exe (OK)
+Version string: 1.017.000_007 / 64-Bit (OK)
+Launcher:	C:\Program Files\Java\jdk-17\bin\javaw.exe
+Launcher args:	-jar "C:\Users\E0739939\Documents\__JIVE\JIVE_Java_Code\SBLCP_local_terminal_GUI-main\JIVE.exe"
+Args length:	95/32768 chars
+Exit code:	0
+
+
+Version:	3.50
+CmdLine:	C:\Users\E0739939\Documents\__JIVE\JIVE_Java_Code\SBLCP_local_terminal_GUI-main\JIVE.exe --l4j-debug
+JNI:		No
+WOW64:		Yes
+Working dir:	C:\Users\E0739939\Documents\__JIVE\JIVE_Java_Code\SBLCP_local_terminal_GUI-main\.
+Requires JDK:	No
+Requires 64-Bit: No
+Java min ver:	
+Java max ver:	
+Substitute:	JAVA_HOME = 
+Substitute:	PATH = C:\Program Files (x86)\STMicroelectronics\st_toolset\asm;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\System32\;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\PuTTY\;C:\Program Files\Java\jdk-17\bin;C:\Program Files\Microsoft VS Code\bin;C:\Espressif\tools\idf-python\3.8.7\Scripts;C:\Program Files\Go\bin;test_path_val;C:\Program Files\Java\jdk-17\bin
+JRE paths:	;C:\Program Files (x86)\STMicroelectronics\st_toolset\asm;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\System32\;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\PuTTY\;C:\Program Files\Java\jdk-17\bin;C:\Program Files\Microsoft VS Code\bin;C:\Espressif\tools\idf-python\3.8.7\Scripts;C:\Program Files\Go\bin;test_path_val;C:\Program Files\Java\jdk-17\bin
+Check launcher:	C:\Program Files (x86)\STMicroelectronics\st_toolset\asm\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\Common Files\Oracle\Java\javapath\bin\javaw.exe (not found)
+Check launcher:	C:\Windows\System32\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\Docker\Docker\resources\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\PuTTY\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\Java\jdk-17\bin\javaw.exe (OK)
+Version string: 1.017.000_007 / 64-Bit (OK)
+Launcher:	C:\Program Files\Java\jdk-17\bin\javaw.exe
+Launcher args:	-jar "C:\Users\E0739939\Documents\__JIVE\JIVE_Java_Code\SBLCP_local_terminal_GUI-main\JIVE.exe"
+Args length:	95/32768 chars
+Exit code:	0
+
+
+Version:	3.50
+CmdLine:	C:\Users\E0739939\Documents\__JIVE\JIVE_Java_Code\SBLCP_local_terminal_GUI-main\JIVE.exe --l4j-debug
+JNI:		No
+WOW64:		Yes
+Working dir:	C:\Users\E0739939\Documents\__JIVE\JIVE_Java_Code\SBLCP_local_terminal_GUI-main\.
+Requires JDK:	No
+Requires 64-Bit: No
+Java min ver:	
+Java max ver:	
+Substitute:	JAVA_HOME = 
+Substitute:	PATH = C:\Program Files (x86)\STMicroelectronics\st_toolset\asm;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\System32\;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\PuTTY\;C:\Program Files\Java\jdk-17\bin;C:\Program Files\Microsoft VS Code\bin;C:\Espressif\tools\idf-python\3.8.7\Scripts;C:\Program Files\Go\bin;test_path_val;C:\Program Files\Java\jdk-17\bin
+JRE paths:	;C:\Program Files (x86)\STMicroelectronics\st_toolset\asm;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\System32\;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\PuTTY\;C:\Program Files\Java\jdk-17\bin;C:\Program Files\Microsoft VS Code\bin;C:\Espressif\tools\idf-python\3.8.7\Scripts;C:\Program Files\Go\bin;test_path_val;C:\Program Files\Java\jdk-17\bin
+Check launcher:	C:\Program Files (x86)\STMicroelectronics\st_toolset\asm\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\Common Files\Oracle\Java\javapath\bin\javaw.exe (not found)
+Check launcher:	C:\Windows\System32\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\Docker\Docker\resources\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\PuTTY\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\Java\jdk-17\bin\javaw.exe (OK)
+Version string: 1.017.000_007 / 64-Bit (OK)
+Launcher:	C:\Program Files\Java\jdk-17\bin\javaw.exe
+Launcher args:	-jar "C:\Users\E0739939\Documents\__JIVE\JIVE_Java_Code\SBLCP_local_terminal_GUI-main\JIVE.exe"
+Args length:	95/32768 chars
+Exit code:	0
+
+
+Version:	3.50
+CmdLine:	C:\Users\E0739939\Documents\__JIVE\JIVE_Java_Code\SBLCP_local_terminal_GUI-main\JIVE.exe --l4j-debug
+JNI:		No
+WOW64:		Yes
+Working dir:	C:\Users\E0739939\Documents\__JIVE\JIVE_Java_Code\SBLCP_local_terminal_GUI-main\.
+Requires JDK:	No
+Requires 64-Bit: No
+Java min ver:	
+Java max ver:	
+Substitute:	JAVA_HOME = 
+Substitute:	PATH = C:\Program Files (x86)\STMicroelectronics\st_toolset\asm;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\System32\;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\PuTTY\;C:\Program Files\Java\jdk-17\bin;C:\Program Files\Microsoft VS Code\bin;C:\Espressif\tools\idf-python\3.8.7\Scripts;C:\Program Files\Go\bin;test_path_val;C:\Program Files\Java\jdk-17\bin
+JRE paths:	;C:\Program Files (x86)\STMicroelectronics\st_toolset\asm;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\System32\;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\PuTTY\;C:\Program Files\Java\jdk-17\bin;C:\Program Files\Microsoft VS Code\bin;C:\Espressif\tools\idf-python\3.8.7\Scripts;C:\Program Files\Go\bin;test_path_val;C:\Program Files\Java\jdk-17\bin
+Check launcher:	C:\Program Files (x86)\STMicroelectronics\st_toolset\asm\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\Common Files\Oracle\Java\javapath\bin\javaw.exe (not found)
+Check launcher:	C:\Windows\System32\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\Docker\Docker\resources\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\PuTTY\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\Java\jdk-17\bin\javaw.exe (OK)
+Version string: 1.017.000_007 / 64-Bit (OK)
+Launcher:	C:\Program Files\Java\jdk-17\bin\javaw.exe
+Launcher args:	-jar "C:\Users\E0739939\Documents\__JIVE\JIVE_Java_Code\SBLCP_local_terminal_GUI-main\JIVE.exe"
+Args length:	95/32768 chars
+Exit code:	0
+
+
+Version:	3.50
+CmdLine:	C:\Users\E0739939\Documents\__JIVE\JIVE_Java_Code\SBLCP_local_terminal_GUI-main\JIVE.exe --l4j-debug
+JNI:		No
+WOW64:		Yes
+Working dir:	C:\Users\E0739939\Documents\__JIVE\JIVE_Java_Code\SBLCP_local_terminal_GUI-main\.
+Requires JDK:	No
+Requires 64-Bit: No
+Java min ver:	
+Java max ver:	
+Substitute:	JAVA_HOME = 
+Substitute:	PATH = C:\Program Files (x86)\STMicroelectronics\st_toolset\asm;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\System32\;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\PuTTY\;C:\Program Files\Java\jdk-17\bin;C:\Program Files\Microsoft VS Code\bin;C:\Espressif\tools\idf-python\3.8.7\Scripts;C:\Program Files\Go\bin;test_path_val;C:\Program Files\Java\jdk-17\bin
+JRE paths:	;C:\Program Files (x86)\STMicroelectronics\st_toolset\asm;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\System32\;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\PuTTY\;C:\Program Files\Java\jdk-17\bin;C:\Program Files\Microsoft VS Code\bin;C:\Espressif\tools\idf-python\3.8.7\Scripts;C:\Program Files\Go\bin;test_path_val;C:\Program Files\Java\jdk-17\bin
+Check launcher:	C:\Program Files (x86)\STMicroelectronics\st_toolset\asm\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\Common Files\Oracle\Java\javapath\bin\javaw.exe (not found)
+Check launcher:	C:\Windows\System32\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\Docker\Docker\resources\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\PuTTY\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\Java\jdk-17\bin\javaw.exe (OK)
+Version string: 1.017.000_007 / 64-Bit (OK)
+Launcher:	C:\Program Files\Java\jdk-17\bin\javaw.exe
+Launcher args:	-jar "C:\Users\E0739939\Documents\__JIVE\JIVE_Java_Code\SBLCP_local_terminal_GUI-main\JIVE.exe"
+Args length:	95/32768 chars
+Exit code:	0
+
+
+Version:	3.50
+CmdLine:	C:\Users\E0739939\Documents\__JIVE\JIVE_Java_Code\SBLCP_local_terminal_GUI-main\JIVE.exe --l4j-debug
+JNI:		No
+WOW64:		Yes
+Working dir:	C:\Users\E0739939\Documents\__JIVE\JIVE_Java_Code\SBLCP_local_terminal_GUI-main\.
+Requires JDK:	No
+Requires 64-Bit: No
+Java min ver:	
+Java max ver:	
+Substitute:	JAVA_HOME = 
+Substitute:	PATH = C:\Program Files (x86)\STMicroelectronics\st_toolset\asm;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\System32\;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\PuTTY\;C:\Program Files\Java\jdk-17\bin;C:\Program Files\Microsoft VS Code\bin;C:\Espressif\tools\idf-python\3.8.7\Scripts;C:\Program Files\Go\bin;test_path_val;C:\Program Files\Java\jdk-17\bin
+JRE paths:	;C:\Program Files (x86)\STMicroelectronics\st_toolset\asm;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\System32\;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\PuTTY\;C:\Program Files\Java\jdk-17\bin;C:\Program Files\Microsoft VS Code\bin;C:\Espressif\tools\idf-python\3.8.7\Scripts;C:\Program Files\Go\bin;test_path_val;C:\Program Files\Java\jdk-17\bin
+Check launcher:	C:\Program Files (x86)\STMicroelectronics\st_toolset\asm\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\Common Files\Oracle\Java\javapath\bin\javaw.exe (not found)
+Check launcher:	C:\Windows\System32\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\Docker\Docker\resources\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\PuTTY\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\Java\jdk-17\bin\javaw.exe (OK)
+Version string: 1.017.000_007 / 64-Bit (OK)
+Launcher:	C:\Program Files\Java\jdk-17\bin\javaw.exe
+Launcher args:	-jar "C:\Users\E0739939\Documents\__JIVE\JIVE_Java_Code\SBLCP_local_terminal_GUI-main\JIVE.exe"
+Args length:	95/32768 chars
+Exit code:	0
+
+
+Version:	3.50
+CmdLine:	C:\Users\E0739939\Documents\__JIVE\JIVE_Java_Code\SBLCP_local_terminal_GUI-main\JIVE.exe --l4j-debug
+JNI:		No
+WOW64:		Yes
+Working dir:	C:\Users\E0739939\Documents\__JIVE\JIVE_Java_Code\SBLCP_local_terminal_GUI-main\.
+Requires JDK:	Yes
+Requires 64-Bit: No
+Java min ver:	
+Java max ver:	
+JRE paths:	C:\Program Files\Java\JRE\bin
+Check launcher:	C:\Program Files\Java\JRE\bin\javaw.exe (OK)
+Check javac:	C:\Program Files\Java\JRE\bin\javac.exe (not found)
+Error msg:	This application requires a Java Runtime Environment.
+
+
+Version:	3.50
+CmdLine:	C:\Users\E0739939\Documents\__JIVE\JIVE_Java_Code\SBLCP_local_terminal_GUI-main\JIVE.exe --l4j-debug
+JNI:		No
+WOW64:		Yes
+Working dir:	C:\Users\E0739939\Documents\__JIVE\JIVE_Java_Code\SBLCP_local_terminal_GUI-main\.
+Requires JDK:	No
+Requires 64-Bit: No
+Java min ver:	
+Java max ver:	
+JRE paths:	C:\Program Files\Java\JRE
+Check launcher:	C:\Program Files\Java\JRE\bin\javaw.exe (OK)
+Version string: 1.008.000_401 / 64-Bit (OK)
+Set var:	JAVA_HOME = [C:\Program Files\Java\jdk-22\bin]
+Launcher:	C:\Program Files\Java\JRE\bin\javaw.exe
+Launcher args:	-jar "C:\Users\E0739939\Documents\__JIVE\JIVE_Java_Code\SBLCP_local_terminal_GUI-main\JIVE.exe"
+Args length:	95/32768 chars
+Exit code:	0
+
+
+Version:	3.50
+CmdLine:	C:\Users\E0739939\Documents\__JIVE\JIVE_Java_Code\SBLCP_local_terminal_GUI-main\JIVE.exe --l4j-debug
+JNI:		No
+WOW64:		Yes
+Working dir:	C:\Users\E0739939\Documents\__JIVE\JIVE_Java_Code\SBLCP_local_terminal_GUI-main\.
+Requires JDK:	No
+Requires 64-Bit: No
+Java min ver:	
+Java max ver:	
+JRE paths:	C:\Program Files\Java\JRE
+Check launcher:	C:\Program Files\Java\JRE\bin\javaw.exe (OK)
+Version string: 1.008.000_401 / 64-Bit (OK)
+Set var:	JAVA_HOME = [C:\Program Files\Java\jdk-22\bin]
+Launcher:	C:\Program Files\Java\JRE\bin\javaw.exe
+Launcher args:	-jar "C:\Users\E0739939\Documents\__JIVE\JIVE_Java_Code\SBLCP_local_terminal_GUI-main\JIVE.exe"
+Args length:	95/32768 chars
+Exit code:	0
+
+
+Version:	3.50
+CmdLine:	C:\Users\E0739939\Documents\__JIVE\JIVE_Java_Code\SBLCP_local_terminal_GUI-main\JIVE.exe --l4j-debug
+JNI:		No
+WOW64:		Yes
+Working dir:	C:\Users\E0739939\Documents\__JIVE\JIVE_Java_Code\SBLCP_local_terminal_GUI-main\.
+Requires JDK:	No
+Requires 64-Bit: No
+Java min ver:	
+Java max ver:	
+JRE paths:	C:\Program Files\Java\JRE
+Check launcher:	C:\Program Files\Java\JRE\bin\javaw.exe (OK)
+Version string: 1.008.000_401 / 64-Bit (OK)
+Set var:	JAVA_HOME = [C:\Program Files\Java\jdk-22\bin]
+Launcher:	C:\Program Files\Java\JRE\bin\javaw.exe
+Launcher args:	-jar "C:\Users\E0739939\Documents\__JIVE\JIVE_Java_Code\SBLCP_local_terminal_GUI-main\JIVE.exe"
+Args length:	95/32768 chars
+Exit code:	0
+
+
+Version:	3.50
+CmdLine:	C:\Users\E0739939\Documents\__JIVE\JIVE_Java_Code\SBLCP_local_terminal_GUI-main\JIVE.exe --l4j-debug
+JNI:		No
+WOW64:		Yes
+Working dir:	C:\Users\E0739939\Documents\__JIVE\JIVE_Java_Code\SBLCP_local_terminal_GUI-main\.
+Requires JDK:	Yes
+Requires 64-Bit: No
+Java min ver:	
+Java max ver:	
+JRE paths:	C:\Program Files\Java\JRE
+Check launcher:	C:\Program Files\Java\JRE\bin\javaw.exe (OK)
+Check javac:	C:\Program Files\Java\JRE\bin\javac.exe (not found)
+Error msg:	This application requires a Java Runtime Environment.
+
+
+Version:	3.50
+CmdLine:	C:\Users\E0739939\Documents\__JIVE\JIVE_Java_Code\SBLCP_local_terminal_GUI-main\JIVE.exe --l4j-debug
+JNI:		No
+WOW64:		Yes
+Working dir:	C:\Users\E0739939\Documents\__JIVE\JIVE_Java_Code\SBLCP_local_terminal_GUI-main\.
+Requires JDK:	Yes
+Requires 64-Bit: No
+Java min ver:	
+Java max ver:	
+JRE paths:	C:\Program Files\Java\JRE
+Check launcher:	C:\Program Files\Java\JRE\bin\javaw.exe (OK)
+Check javac:	C:\Program Files\Java\JRE\bin\javac.exe (not found)
+Error msg:	This application requires a Java Runtime Environment.
+
+
+Version:	3.50
+CmdLine:	C:\Users\E0739939\Documents\__JIVE\JIVE_Java_Code\SBLCP_local_terminal_GUI-main\JIVE.exe --l4j-debug
+JNI:		No
+WOW64:		Yes
+Working dir:	C:\Users\E0739939\Documents\__JIVE\JIVE_Java_Code\SBLCP_local_terminal_GUI-main\.
+Requires JDK:	Yes
+Requires 64-Bit: No
+Java min ver:	
+Java max ver:	
+JRE paths:	C:\Program Files\Java\JRE\bin
+Check launcher:	C:\Program Files\Java\JRE\bin\javaw.exe (OK)
+Check javac:	C:\Program Files\Java\JRE\bin\javac.exe (not found)
+Error msg:	This application requires a Java Runtime Environment.
+
+
+Version:	3.50
+CmdLine:	C:\Users\E0739939\Documents\__JIVE\JIVE_Java_Code\SBLCP_local_terminal_GUI-main\JIVE.exe --l4j-debug
+JNI:		No
+WOW64:		Yes
+Working dir:	C:\Users\E0739939\Documents\__JIVE\JIVE_Java_Code\SBLCP_local_terminal_GUI-main\.
+Requires JDK:	Yes
+Requires 64-Bit: No
+Java min ver:	
+Java max ver:	
+JRE paths:	C:\Program Files\Java\JRE\bin
+Check launcher:	C:\Program Files\Java\JRE\bin\javaw.exe (OK)
+Check javac:	C:\Program Files\Java\JRE\bin\javac.exe (not found)
+Error msg:	This application requires a Java Runtime Environment.
+
+
+Version:	3.50
+CmdLine:	C:\Users\E0739939\Documents\__JIVE\JIVE_Java_Code\SBLCP_local_terminal_GUI-main\JIVE.exe --l4j-debug
+JNI:		No
+WOW64:		Yes
+Working dir:	C:\Users\E0739939\Documents\__JIVE\JIVE_Java_Code\SBLCP_local_terminal_GUI-main\.
+Requires JDK:	Yes
+Requires 64-Bit: No
+Java min ver:	
+Java max ver:	
+JRE paths:	C:\Program Files\Java\JRE\bin
+Check launcher:	C:\Program Files\Java\JRE\bin\javaw.exe (OK)
+Check javac:	C:\Program Files\Java\JRE\bin\javac.exe (not found)
+Error msg:	This application requires a Java Runtime Environment.
